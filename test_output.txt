@@ -1,0 +1,410 @@
+
+> @kenikool/react@0.1.0 test
+> vitest run
+
+
+[7m[1m[36m RUN [39m[22m[27m [36mv1.6.1[39m [90mC:/Users/wakil/OneDrive/Desktop/KENIKOOLUI/packages/react[39m
+
+ [33m❯[39m src/components/__tests__/Card.test.tsx [2m ([22m[2m52 tests[22m [2m|[22m [31m52 failed[39m[2m)[22m[33m 1362[2mms[22m[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mrendering[2m > [22mrenders a div element[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mrendering[2m > [22mrenders children content[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mrendering[2m > [22mrenders with default padding (md)[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mrendering[2m > [22mrenders with small padding[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mrendering[2m > [22mrenders with large padding[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mrendering[2m > [22mrenders with default shadow (md)[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mrendering[2m > [22mrenders with small shadow[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mrendering[2m > [22mrenders with large shadow[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mrendering[2m > [22mrenders with no shadow[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mrendering[2m > [22mrenders with custom className[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mrendering[2m > [22mrenders with all prop combinations[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mchildren rendering[2m > [22mrenders text children[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mchildren rendering[2m > [22mrenders React element children[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mchildren rendering[2m > [22mrenders multiple children[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mchildren rendering[2m > [22mrenders nested components[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mchildren rendering[2m > [22mrenders empty card[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mchildren rendering[2m > [22mrenders card with only whitespace[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mchildren rendering[2m > [22mrenders complex nested structure[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mpadding variants[2m > [22mapplies small padding class[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mpadding variants[2m > [22mapplies medium padding class[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mpadding variants[2m > [22mapplies large padding class[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mshadow variants[2m > [22mapplies small shadow class[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mshadow variants[2m > [22mapplies medium shadow class[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mshadow variants[2m > [22mapplies large shadow class[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mshadow variants[2m > [22mapplies no shadow class[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22manimations[2m > [22mrenders with animation class when animation prop is set[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22manimations[2m > [22mrenders with no animation class when animation is 'none'[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22manimations[2m > [22mrenders with pulse animation[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22manimations[2m > [22mrenders with scale animation[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mHTML attributes[2m > [22mpasses through aria-label attribute[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mHTML attributes[2m > [22mpasses through data attributes[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mHTML attributes[2m > [22mpasses through id attribute[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mHTML attributes[2m > [22mpasses through role attribute[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22medge cases[2m > [22mhandles very long content[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22medge cases[2m > [22mhandles special characters in content[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22medge cases[2m > [22mhandles HTML entities in content[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22medge cases[2m > [22mrenders with style prop[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22medge cases[2m > [22mrenders with multiple className combinations[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mall prop combinations[2m > [22mrenders with all props combined[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mclassName merging[2m > [22mmerges default classes with custom className[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mclassName merging[2m > [22mpreserves all padding and shadow classes with custom className[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22mclassName merging[2m > [22mhandles multiple custom classes[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22maccessibility[2m > [22msupports aria-label attribute[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22maccessibility[2m > [22msupports role attribute[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22maccessibility[2m > [22msupports role with aria-label[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22maccessibility[2m > [22msupports article role[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22maccessibility[2m > [22msupports complementary role[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22maccessibility[2m > [22msupports aria-label with other attributes[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22maccessibility[2m > [22msupports semantic HTML structure inside card[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22maccessibility[2m > [22mmaintains semantic structure with nested headings[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22maccessibility[2m > [22msupports interactive content inside card[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Card.test.tsx[2m > [22mKCard[2m > [22maccessibility[2m > [22msupports form elements inside card[39m
+[31m     → window.matchMedia is not a function[39m
+ [33m❯[39m src/components/__tests__/Input.test.tsx [2m ([22m[2m50 tests[22m [2m|[22m [31m50 failed[39m[2m)[22m[33m 1294[2mms[22m[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22mrendering[2m > [22mrenders an input element[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22mrendering[2m > [22mrenders with default size (md)[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22mrendering[2m > [22mrenders with small size[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22mrendering[2m > [22mrenders with large size[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22mrendering[2m > [22mrenders with custom className[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22mrendering[2m > [22mrenders with placeholder[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22mrendering[2m > [22mrenders with custom type[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22mrendering[2m > [22mrenders with password type[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22mdisabled state[2m > [22mrenders as disabled when disabled prop is true[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22mdisabled state[2m > [22mrenders as enabled when disabled prop is false[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22mdisabled state[2m > [22mapplies disabled class when disabled[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22mdisabled state[2m > [22mdoes not accept input when disabled[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22merror state[2m > [22mapplies error class when error prop is true[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22merror state[2m > [22mdoes not apply error class when error prop is false[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22merror state[2m > [22mrenders with error styling[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22mcontrolled component[2m > [22mrenders with value prop[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22mcontrolled component[2m > [22mupdates value when value prop changes[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22mcontrolled component[2m > [22mcalls onChange handler when value changes[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22mcontrolled component[2m > [22mpasses event to onChange handler[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22mcontrolled component[2m > [22mhandles multiple character input[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22muncontrolled component[2m > [22mrenders without value prop[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22muncontrolled component[2m > [22mmaintains internal state without value prop[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22muncontrolled component[2m > [22mcalls onChange handler in uncontrolled mode[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22muncontrolled component[2m > [22mallows clearing input in uncontrolled mode[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22manimations[2m > [22mrenders with animation class when animation prop is set[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22manimations[2m > [22mrenders with no animation class when animation is 'none'[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22mHTML attributes[2m > [22mpasses through aria-label attribute[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22mHTML attributes[2m > [22mpasses through data attributes[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22mHTML attributes[2m > [22mpasses through id attribute[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22mHTML attributes[2m > [22mpasses through name attribute[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22medge cases[2m > [22mhandles empty placeholder[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22medge cases[2m > [22mhandles special characters in value[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22medge cases[2m > [22mhandles very long input[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22medge cases[2m > [22mhandles rapid input changes[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22medge cases[2m > [22mhandles focus and blur events[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22mall prop combinations[2m > [22mrenders with all props combined[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22mclassName merging[2m > [22mmerges default classes with custom className[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22mclassName merging[2m > [22mpreserves all size and error classes with custom className[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22mclassName merging[2m > [22mhandles multiple custom classes[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22maccessibility[2m > [22msupports aria-label attribute[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22maccessibility[2m > [22msupports aria-describedby attribute[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22maccessibility[2m > [22msets aria-invalid when error prop is true[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22maccessibility[2m > [22msets aria-invalid to false when error prop is false[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22maccessibility[2m > [22mrespects explicit aria-invalid prop over error prop[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22maccessibility[2m > [22mis keyboard accessible with Tab key[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22maccessibility[2m > [22maccepts keyboard input[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22maccessibility[2m > [22msupports screen reader interaction[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22maccessibility[2m > [22mcommunicates disabled state to assistive technologies[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22maccessibility[2m > [22msupports aria-label with other attributes[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Input.test.tsx[2m > [22mKInput[2m > [22maccessibility[2m > [22msupports aria-describedby with error messages[39m
+[31m     → window.matchMedia is not a function[39m
+ [33m❯[39m src/components/__tests__/accessibility.test.tsx [2m ([22m[2m47 tests[22m [2m|[22m [31m47 failed[39m[2m)[22m[33m 1770[2mms[22m[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mKButton accessibility[2m > [22mshould not have accessibility violations - primary button[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mKButton accessibility[2m > [22mshould not have accessibility violations - secondary button[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mKButton accessibility[2m > [22mshould not have accessibility violations - danger button[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mKButton accessibility[2m > [22mshould not have accessibility violations - disabled button[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mKButton accessibility[2m > [22mshould not have accessibility violations - button with aria-label[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mKButton accessibility[2m > [22mshould not have accessibility violations - button with aria-pressed[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mKButton accessibility[2m > [22mshould not have accessibility violations - all button sizes[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mKButton accessibility[2m > [22mshould not have accessibility violations - button with animation[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mKInput accessibility[2m > [22mshould not have accessibility violations - basic input[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mKInput accessibility[2m > [22mshould not have accessibility violations - input with aria-label[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mKInput accessibility[2m > [22mshould not have accessibility violations - input with error state[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mKInput accessibility[2m > [22mshould not have accessibility violations - disabled input[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mKInput accessibility[2m > [22mshould not have accessibility violations - input with aria-describedby[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mKInput accessibility[2m > [22mshould not have accessibility violations - all input sizes[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mKInput accessibility[2m > [22mshould not have accessibility violations - input with placeholder[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mKInput accessibility[2m > [22mshould not have accessibility violations - email input[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mKInput accessibility[2m > [22mshould not have accessibility violations - password input[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mKCard accessibility[2m > [22mshould not have accessibility violations - basic card[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mKCard accessibility[2m > [22mshould not have accessibility violations - card with role[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mKCard accessibility[2m > [22mshould not have accessibility violations - card with aria-label[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mKCard accessibility[2m > [22mshould not have accessibility violations - card with role and aria-label[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mKCard accessibility[2m > [22mshould not have accessibility violations - card with heading[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mKCard accessibility[2m > [22mshould not have accessibility violations - card with button[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mKCard accessibility[2m > [22mshould not have accessibility violations - all card padding variants[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mKCard accessibility[2m > [22mshould not have accessibility violations - all card shadow variants[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mComponent combinations accessibility[2m > [22mshould not have accessibility violations - button inside card[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mComponent combinations accessibility[2m > [22mshould not have accessibility violations - input inside card[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mComponent combinations accessibility[2m > [22mshould not have accessibility violations - form with button and input[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mComponent combinations accessibility[2m > [22mshould not have accessibility violations - multiple cards with buttons[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mColor contrast verification[2m > [22mshould have sufficient color contrast - primary button[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mColor contrast verification[2m > [22mshould have sufficient color contrast - secondary button[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mColor contrast verification[2m > [22mshould have sufficient color contrast - danger button[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mColor contrast verification[2m > [22mshould have sufficient color contrast - input[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mColor contrast verification[2m > [22mshould have sufficient color contrast - card[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mKeyboard Navigation[2m > [22mbutton should respond to Enter key[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mKeyboard Navigation[2m > [22mbutton should respond to Space key[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mKeyboard Navigation[2m > [22minput should be keyboard accessible[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mKeyboard Navigation[2m > [22mdisabled button should not respond to keyboard[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mKeyboard Navigation[2m > [22mdisabled input should not respond to keyboard[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mFocus management[2m > [22mbutton should be focusable[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mFocus management[2m > [22minput should be focusable[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mFocus management[2m > [22mdisabled button should not be focusable via keyboard[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mFocus management[2m > [22mdisabled input should not be focusable via keyboard[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mARIA Attributes Verification[2m > [22mbutton should have proper ARIA attributes[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mARIA Attributes Verification[2m > [22minput should have proper ARIA attributes[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mARIA Attributes Verification[2m > [22minput with error should have aria-invalid set to true[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/accessibility.test.tsx[2m > [22mAccessibility - axe-core compliance[2m > [22mARIA Attributes Verification[2m > [22mcard should have proper ARIA attributes[39m
+[31m     → window.matchMedia is not a function[39m
+ [32m✓[39m src/animations/variants.test.ts [2m ([22m[2m18 tests[22m[2m)[22m[90m 28[2mms[22m[39m
+ [33m❯[39m src/components/__tests__/Button.test.tsx [2m ([22m[2m47 tests[22m [2m|[22m [31m47 failed[39m[2m)[22m[33m 1214[2mms[22m[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22mrendering[2m > [22mrenders a button element[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22mrendering[2m > [22mrenders children content[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22mrendering[2m > [22mrenders with default variant (primary)[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22mrendering[2m > [22mrenders with custom variant[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22mrendering[2m > [22mrenders with danger variant[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22mrendering[2m > [22mrenders with default size (md)[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22mrendering[2m > [22mrenders with small size[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22mrendering[2m > [22mrenders with large size[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22mrendering[2m > [22mrenders with custom className[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22mrendering[2m > [22mrenders with all prop combinations[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22mdisabled state[2m > [22mrenders as disabled when disabled prop is true[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22mdisabled state[2m > [22mrenders as enabled when disabled prop is false[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22mdisabled state[2m > [22mdoes not trigger onClick when disabled[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22mclick handler[2m > [22mcalls onClick handler when clicked[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22mclick handler[2m > [22mpasses event to onClick handler[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22mclick handler[2m > [22mcalls onClick multiple times on multiple clicks[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22mbutton type[2m > [22mrenders with default type (button)[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22mbutton type[2m > [22mrenders with submit type[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22mbutton type[2m > [22mrenders with reset type[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22manimations[2m > [22mrenders with animation class when animation prop is set[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22manimations[2m > [22mrenders with no animation class when animation is 'none'[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22manimations[2m > [22mrenders with bounce animation[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22manimations[2m > [22mrenders with fade animation[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22manimations[2m > [22mrenders with scale animation[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22manimations[2m > [22mrenders with shake animation[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22manimations[2m > [22mrenders with glow animation[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22manimations[2m > [22mrenders with slide animation[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22manimations[2m > [22mrenders with rotate animation[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22manimations[2m > [22mrenders with flip animation[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22mHTML attributes[2m > [22mpasses through aria-label attribute[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22mHTML attributes[2m > [22mpasses through data attributes[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22mHTML attributes[2m > [22mpasses through id attribute[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22medge cases[2m > [22mrenders with empty children[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22medge cases[2m > [22mrenders with React elements as children[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22medge cases[2m > [22mhandles rapid clicks[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22mclassName merging[2m > [22mmerges default classes with custom className[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22mclassName merging[2m > [22mpreserves all variant and size classes with custom className[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22mclassName merging[2m > [22mhandles multiple custom classes[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22maccessibility[2m > [22msupports aria-label attribute[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22maccessibility[2m > [22msupports aria-pressed attribute for toggle buttons[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22maccessibility[2m > [22mupdates aria-pressed when prop changes[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22maccessibility[2m > [22mis keyboard accessible with Tab key[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22maccessibility[2m > [22mis keyboard accessible with Enter key[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22maccessibility[2m > [22mis keyboard accessible with Space key[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22maccessibility[2m > [22mhas proper role attribute[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22maccessibility[2m > [22mcommunicates disabled state to assistive technologies[39m
+[31m     → window.matchMedia is not a function[39m
+[31m   [33m❯[31m src/components/__tests__/Button.test.tsx[2m > [22mKButton[2m > [22maccessibility[2m > [22msupports aria-label with other attributes[39m
+[31m     → window.matchMedia is not a function[39m
+
+[2m Test Files [22m [1m[31m4 failed[39m[22m[2m | [22m[1m[32m1 passed[39m[22m[90m (5)[39m
+[2m      Tests [22m [1m[31m196 failed[39m[22m[2m | [22m[1m[32m18 passed[39m[22m[90m (214)[39m
+[2m   Start at [22m 19:34:22
+[2m   Duration [22m 79.47s[2m (transform 8.45s, setup 0ms, collect 43.71s, tests 5.67s, environment 55.82s, prepare 6.74s)[22m
+

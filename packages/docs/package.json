@@ -1,0 +1,41 @@
+{
+  "name": "@kenikool/docs",
+  "version": "0.1.0",
+  "description": "Storybook documentation for Kenikool UI",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "test": "vitest run",
+    "lint": "eslint stories --ext .ts,.tsx",
+    "format": "prettier --write stories"
+  },
+  "keywords": [
+    "kenikool",
+    "ui",
+    "storybook",
+    "documentation"
+  ],
+  "author": "Kenikool",
+  "license": "MIT",
+  "dependencies": {
+    "@kenikool/core": "*",
+    "@kenikool/vanilla": "*",
+    "@kenikool/react": "*"
+  },
+  "devDependencies": {
+    "@storybook/react": "^7.0.0",
+    "@storybook/addon-controls": "^7.0.0",
+    "@storybook/addon-a11y": "^7.0.0",
+    "@storybook/addon-docs": "^7.0.0",
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "tailwindcss": "^4.0.0"
+  }
+}

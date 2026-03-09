@@ -1,0 +1,122 @@
+/**
+ * Card Component Styles
+ * 
+ * Global CSS for k-card component padding and shadow variants.
+ * These styles are optional and provided for documentation and global styling purposes.
+ * Components have scoped CSS in their shadow DOM for encapsulation.
+ */
+
+:root {
+  --color-bg: #ffffff;
+  --color-text: #1f2937;
+  --color-border: #e5e7eb;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #1f2937;
+    --color-text: #f3f4f6;
+    --color-border: #374151;
+  }
+}
+
+/* Base card styles */
+.k-card {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-border);
+  transition: all 0.2s ease-out;
+}
+
+/* Padding: Small */
+.k-card--padding-sm {
+  padding: 0.75rem;
+}
+
+/* Padding: Medium */
+.k-card--padding-md {
+  padding: 1rem;
+}
+
+/* Padding: Large */
+.k-card--padding-lg {
+  padding: 1.5rem;
+}
+
+/* Shadow: None */
+.k-card--shadow-none {
+  box-shadow: none;
+}
+
+/* Shadow: Small */
+.k-card--shadow-sm {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Shadow: Medium */
+.k-card--shadow-md {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Shadow: Large */
+.k-card--shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Animation classes */
+.k-card--pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.k-card--bounce {
+  animation: bounce 0.5s ease-out;
+}
+
+.k-card--fade {
+  animation: fade 0.3s ease-out;
+}
+
+.k-card--scale {
+  animation: scale 0.3s ease-out;
+}
+
+.k-card--shake {
+  animation: shake 0.3s ease-out;
+}
+
+.k-card--glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.k-card--slide {
+  animation: slide 0.3s ease-out;
+}
+
+.k-card--rotate {
+  animation: rotate 1s linear infinite;
+}
+
+.k-card--flip {
+  animation: flip 0.6s ease-out;
+}
+
+/* Respect prefers-reduced-motion for animations */
+@media (prefers-reduced-motion: reduce) {
+  .k-card {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .k-card--pulse,
+  .k-card--bounce,
+  .k-card--fade,
+  .k-card--scale,
+  .k-card--shake,
+  .k-card--glow,
+  .k-card--slide,
+  .k-card--rotate,
+  .k-card--flip {
+    animation: none !important;
+  }
+}

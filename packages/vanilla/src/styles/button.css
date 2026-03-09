@@ -1,0 +1,150 @@
+/**
+ * Button Component Styles
+ * 
+ * Global CSS for k-button component variants and sizes.
+ * These styles are optional and provided for documentation and global styling purposes.
+ * Components have scoped CSS in their shadow DOM for encapsulation.
+ */
+
+:root {
+  --color-primary: #3b82f6;
+  --color-primary-dark: #1e40af;
+  --color-secondary: #6b7280;
+  --color-secondary-dark: #374151;
+  --color-danger: #ef4444;
+  --color-danger-dark: #dc2626;
+}
+
+/* Base button styles */
+.k-button {
+  font-family: inherit;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.k-button:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Variant: Primary */
+.k-button--primary {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.k-button--primary:hover:not(:disabled) {
+  background-color: var(--color-primary-dark);
+}
+
+/* Variant: Secondary */
+.k-button--secondary {
+  background-color: var(--color-secondary);
+  color: white;
+}
+
+.k-button--secondary:hover:not(:disabled) {
+  background-color: var(--color-secondary-dark);
+}
+
+/* Variant: Danger */
+.k-button--danger {
+  background-color: var(--color-danger);
+  color: white;
+}
+
+.k-button--danger:hover:not(:disabled) {
+  background-color: var(--color-danger-dark);
+}
+
+/* Size: Small */
+.k-button--sm {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+}
+
+/* Size: Medium */
+.k-button--md {
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+}
+
+/* Size: Large */
+.k-button--lg {
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+}
+
+/* Disabled state */
+.k-button:disabled,
+.k-button--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Animation classes */
+.k-button--pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.k-button--bounce {
+  animation: bounce 0.5s ease-out;
+}
+
+.k-button--bounce:hover {
+  animation: bounce 0.5s ease-out;
+}
+
+.k-button--fade {
+  animation: fade 0.3s ease-out;
+}
+
+.k-button--scale:hover {
+  animation: scale 0.3s ease-out forwards;
+}
+
+.k-button--shake:active {
+  animation: shake 0.3s ease-out;
+}
+
+.k-button--glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.k-button--slide {
+  animation: slide 0.3s ease-out;
+}
+
+.k-button--rotate {
+  animation: rotate 1s linear infinite;
+}
+
+.k-button--flip {
+  animation: flip 0.6s ease-out;
+}
+
+/* Respect prefers-reduced-motion for animations */
+@media (prefers-reduced-motion: reduce) {
+  .k-button {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .k-button--pulse,
+  .k-button--bounce,
+  .k-button--fade,
+  .k-button--scale,
+  .k-button--shake,
+  .k-button--glow,
+  .k-button--slide,
+  .k-button--rotate,
+  .k-button--flip {
+    animation: none !important;
+  }
+}

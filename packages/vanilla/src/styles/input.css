@@ -1,0 +1,122 @@
+/**
+ * Input Component Styles
+ * 
+ * Global CSS for k-input component states and sizes.
+ * These styles are optional and provided for documentation and global styling purposes.
+ * Components have scoped CSS in their shadow DOM for encapsulation.
+ */
+
+:root {
+  --color-primary: #3b82f6;
+  --color-border: #e5e7eb;
+  --color-error: #ef4444;
+}
+
+/* Base input styles */
+.k-input {
+  font-family: inherit;
+  border: 1px solid var(--color-border);
+  border-radius: 0.375rem;
+  font-size: inherit;
+  transition: all 0.2s ease-out;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.k-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Size: Small */
+.k-input--sm {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+}
+
+/* Size: Medium */
+.k-input--md {
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+}
+
+/* Size: Large */
+.k-input--lg {
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+}
+
+/* Error state */
+.k-input--error {
+  border-color: var(--color-error);
+}
+
+.k-input--error:focus {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* Disabled state */
+.k-input:disabled,
+.k-input--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Animation classes */
+.k-input--pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.k-input--bounce {
+  animation: bounce 0.5s ease-out;
+}
+
+.k-input--fade {
+  animation: fade 0.3s ease-out;
+}
+
+.k-input--scale {
+  animation: scale 0.3s ease-out;
+}
+
+.k-input--shake {
+  animation: shake 0.3s ease-out;
+}
+
+.k-input--glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.k-input--slide {
+  animation: slide 0.3s ease-out;
+}
+
+.k-input--rotate {
+  animation: rotate 1s linear infinite;
+}
+
+.k-input--flip {
+  animation: flip 0.6s ease-out;
+}
+
+/* Respect prefers-reduced-motion for animations */
+@media (prefers-reduced-motion: reduce) {
+  .k-input {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .k-input--pulse,
+  .k-input--bounce,
+  .k-input--fade,
+  .k-input--scale,
+  .k-input--shake,
+  .k-input--glow,
+  .k-input--slide,
+  .k-input--rotate,
+  .k-input--flip {
+    animation: none !important;
+  }
+}

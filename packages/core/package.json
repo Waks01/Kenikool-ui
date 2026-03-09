@@ -1,0 +1,42 @@
+{
+  "name": "@kenikool/core",
+  "version": "0.1.0",
+  "description": "Core types and utilities for Kenikool UI",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "vitest run",
+    "test:property": "vitest run --grep 'Property'",
+    "lint": "eslint src --ext .ts",
+    "format": "prettier --write src"
+  },
+  "keywords": [
+    "kenikool",
+    "ui",
+    "types",
+    "utilities"
+  ],
+  "author": "Kenikool",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "fast-check": "^3.13.0",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0"
+  }
+}

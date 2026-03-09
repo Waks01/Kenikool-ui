@@ -1,0 +1,103 @@
+{
+  "name": "@kenikool/ui",
+  "version": "0.1.0",
+  "description": "A dual-framework component library for vanilla JavaScript and React",
+  "private": false,
+  "type": "module",
+  "main": "./packages/vanilla/dist/index.cjs",
+  "module": "./packages/vanilla/dist/index.mjs",
+  "types": "./packages/vanilla/dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./packages/vanilla/dist/index.d.ts",
+      "import": "./packages/vanilla/dist/index.mjs",
+      "require": "./packages/vanilla/dist/index.cjs"
+    },
+    "./vanilla": {
+      "types": "./packages/vanilla/dist/index.d.ts",
+      "import": "./packages/vanilla/dist/index.mjs",
+      "require": "./packages/vanilla/dist/index.cjs"
+    },
+    "./react": {
+      "types": "./packages/react/dist/index.d.ts",
+      "import": "./packages/react/dist/index.mjs",
+      "require": "./packages/react/dist/index.cjs"
+    },
+    "./css": "./packages/vanilla/dist/styles.css"
+  },
+  "files": [
+    "packages/vanilla/dist",
+    "packages/react/dist",
+    "packages/vanilla/src",
+    "packages/react/src",
+    "packages/core/src",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspaces --if-present",
+    "build": "npm run build --workspaces --if-present",
+    "test": "vitest --run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --run --coverage",
+    "test:property": "vitest --run --grep property",
+    "test:a11y": "npm run test:a11y --workspaces --if-present",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "storybook": "npm --prefix packages/docs run storybook",
+    "storybook:build": "npm --prefix packages/docs run build-storybook"
+  },
+  "keywords": [
+    "ui",
+    "components",
+    "tailwind",
+    "web-components",
+    "react",
+    "typescript",
+    "kenikool",
+    "component-library",
+    "design-system"
+  ],
+  "author": "Kenikool",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kenikool/kenikool-ui"
+  },
+  "bugs": {
+    "url": "https://github.com/kenikool/kenikool-ui/issues"
+  },
+  "homepage": "https://kenikool-ui.vercel.app",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "workspaces": [
+    "packages/core",
+    "packages/vanilla",
+    "packages/react",
+    "packages/docs"
+  ],
+  "devDependencies": {
+    "@axe-core/react": "^4.11.1",
+    "@testing-library/dom": "^10.4.1",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vitest/coverage-v8": "^4.0.18",
+    "@vitest/ui": "^4.0.18",
+    "axe-core": "^4.11.1",
+    "eslint": "^8.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "fast-check": "^4.6.0",
+    "husky": "^8.0.0",
+    "jest-axe": "^10.0.0",
+    "jsdom": "^28.1.0",
+    "lint-staged": "^15.0.0",
+    "prettier": "^3.0.0",
+    "vitest": "^4.0.18"
+  }
+}

@@ -1,0 +1,66 @@
+name: Bundle Size Check
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  bundle-size:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: 'npm'
+
+      - name: Install npm dependencies
+        run: npm ci
+
+      - name: Build packages
+        run: npm run build
+
+      - name: Check vanilla bundle size
+        run: |
+          VANILLA_SIZE=$(gzip -c packages/vanilla/dist/index.mjs | wc -c)
+          VANILLA_SIZE_KB=$((VANILLA_SIZE / 1024))
+          echo "Vanilla bundle size: ${VANILLA_SIZE_KB}KB (gzipped)"
+          if [ $VANILLA_SIZE_KB -gt 50 ]; then
+            echo "❌ Vanilla bundle exceeds 50KB limit (${VANILLA_SIZE_KB}KB)"
+            exit 1
+          else
+            echo "✅ Vanilla bundle within 50KB limit"
+          fi
+
+      - name: Check React bundle size
+        run: |
+          REACT_SIZE=$(gzip -c packages/react/dist/index.mjs | wc -c)
+          REACT_SIZE_KB=$((REACT_SIZE / 1024))
+          echo "React bundle size: ${REACT_SIZE_KB}KB (gzipped)"
+          if [ $REACT_SIZE_KB -gt 75 ]; then
+            echo "❌ React bundle exceeds 75KB limit (${REACT_SIZE_KB}KB)"
+            exit 1
+          else
+            echo "✅ React bundle within 75KB limit"
+          fi
+
+      - name: Comment PR with bundle sizes
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const vanillaSize = Math.round(require('child_process').execSync('gzip -c packages/vanilla/dist/index.mjs | wc -c').toString() / 1024);
+            const reactSize = Math.round(require('child_process').execSync('gzip -c packages/react/dist/index.mjs | wc -c').toString() / 1024);
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `## 📦 Bundle Size Report\n\n| Package | Size (gzipped) | Limit | Status |\n|---------|---|---|---|\n| Vanilla | ${vanillaSize}KB | 50KB | ${vanillaSize <= 50 ? '✅' : '❌'} |\n| React | ${reactSize}KB | 75KB | ${reactSize <= 75 ? '✅' : '❌'} |`
+            })

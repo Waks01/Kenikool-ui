@@ -439,14 +439,14 @@ This implementation plan breaks down the Kenikool UI component library into disc
   - Include migration guide if applicable
   - _Requirements: 14.7_
 
-- [-] 7.5 Set up npm publishing workflow
+- [x] 7.5 Set up npm publishing workflow
   - Create GitHub Actions workflow for npm publishing
   - Configure npm authentication with tokens
   - Set up automatic version bumping
   - Configure publishing on release creation
   - _Requirements: 14.1_
 
-- [~] 7.6 Publish to npm
+- [x] 7.6 Publish to npm
   - Build all packages
   - Run final test suite
   - Bump version number
@@ -454,7 +454,7 @@ This implementation plan breaks down the Kenikool UI component library into disc
   - Verify package is accessible on npm
   - _Requirements: 14.1, 14.2, 14.3_
 
-- [~] 7.7 Create GitHub releases
+- [x] 7.7 Create GitHub releases
   - Create GitHub release for published version
   - Add release notes with feature list
   - Attach build artifacts if applicable

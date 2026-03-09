@@ -1144,6 +1144,40 @@ export function InputStates() {
 }
 ```
 
+## Publishing
+
+Kenikool UI uses automated GitHub Actions workflows for npm publishing:
+
+### Automatic Release
+
+1. Make commits with conventional commit messages:
+
+   ```bash
+   git commit -m "feat: add new component"
+   git commit -m "fix: resolve bug"
+   ```
+
+2. Push to main:
+
+   ```bash
+   git push origin main
+   ```
+
+3. Workflows handle the rest:
+   - Version bumped automatically
+   - Published to npm
+   - GitHub release created
+
+### Manual Release
+
+Go to GitHub Actions → "Automatic Release" → "Run workflow" → Select version type
+
+### Documentation
+
+- [Quick Release Guide](.github/QUICK_RELEASE_GUIDE.md)
+- [Full Setup Guide](.github/GITHUB_ACTIONS_SETUP.md)
+- [Publishing Guide](./PUBLISHING.md)
+
 ## Contributing
 
 We welcome contributions! Please see our [Contributing Guidelines](./CONTRIBUTING.md) for details.
@@ -1161,4 +1195,3 @@ MIT © 2024 Kenikool
 ## Changelog
 
 See [CHANGELOG.md](./CHANGELOG.md) for a list of changes in each release.
-"# Kenikool-ui" 

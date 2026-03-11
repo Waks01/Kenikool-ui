@@ -1,0 +1,7 @@
+/* Kenikool UI - Vanilla Components Styles */
+@import './styles/theme.css';
+@import './styles/button.css';
+@import './styles/input.css';
+@import './styles/card.css';
+@import './styles/animations.css';
+@import './styles/accessibility.css';

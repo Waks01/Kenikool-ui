@@ -308,7 +308,76 @@ describe('KInput', () => {
     });
   });
 
-  describe('accessibility', () => {
+  describe('design prop', () => {
+    it('renders with design prop for size', () => {
+      render(<KInput design="s:lg" />);
+      const input = screen.getByRole('textbox');
+      expect(input.className).toContain('k-input--lg');
+    });
+
+    it('renders with design prop for animation', () => {
+      render(<KInput design="a:fade" />);
+      const input = screen.getByRole('textbox');
+      expect(input.className).toContain('k-input--fade');
+    });
+
+    it('renders with multiple design tokens', () => {
+      render(<KInput design="s:md a:bounce" />);
+      const input = screen.getByRole('textbox');
+      expect(input.className).toContain('k-input--md');
+      expect(input.className).toContain('k-input--bounce');
+    });
+
+    it('individual props override design tokens', () => {
+      render(<KInput design="s:md" size="lg" />);
+      const input = screen.getByRole('textbox');
+      expect(input.className).toContain('k-input--lg');
+    });
+
+    it('renders with design prop and custom className', () => {
+      render(<KInput design="s:lg a:fade" className="custom" />);
+      const input = screen.getByRole('textbox');
+      expect(input.className).toContain('k-input--lg');
+      expect(input.className).toContain('k-input--fade');
+      expect(input.className).toContain('custom');
+    });
+
+    it('handles all animation types in design prop', () => {
+      const animations = ['pulse', 'bounce', 'fade', 'scale', 'shake', 'glow', 'slide', 'rotate', 'flip'];
+      animations.forEach((anim) => {
+        const { container } = render(<KInput design={`a:${anim}`} />);
+        const input = container.querySelector('input');
+        expect(input?.className).toContain(`k-input--${anim}`);
+      });
+    });
+
+    it('handles all size types in design prop', () => {
+      const sizes = ['sm', 'md', 'lg'];
+      sizes.forEach((size) => {
+        const { container } = render(<KInput design={`s:${size}`} />);
+        const input = container.querySelector('input');
+        expect(input?.className).toContain(`k-input--${size}`);
+      });
+    });
+  });
+
+  describe('deprecated props warning', () => {
+    it('does not warn when using design prop only', () => {
+      const consoleSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      render(<KInput design="s:md a:fade" />);
+      expect(consoleSpy).not.toHaveBeenCalled();
+      consoleSpy.mockRestore();
+    });
+
+    it('warns when using individual size prop', () => {
+      const consoleSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      render(<KInput size="lg" />);
+      if (process.env.NODE_ENV === 'development') {
+        expect(consoleSpy).toHaveBeenCalled();
+      }
+      consoleSpy.mockRestore();
+    });
+  });
     it('supports aria-label attribute', () => {
       render(<KInput aria-label="Email address" />);
       const input = screen.getByLabelText('Email address');

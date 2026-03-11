@@ -10,7 +10,6 @@ export default defineConfig({
       fileName: (format) => `index.${format === 'es' ? 'mjs' : 'cjs'}`,
     },
     rollupOptions: {
-      external: ['@kenikool/core'],
       output: {
         globals: {
           '@kenikool/core': 'KenikoolCore',
@@ -19,8 +18,6 @@ export default defineConfig({
     },
     minify: 'esbuild',
     sourcemap: true,
-    cssCodeSplit: true,
-    cssMinify: true,
   },
   server: {
     middlewareMode: true,

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debug Test</title>
+  </head>
+  <body>
+    <h1>Debug Test</h1>
+
+    <!-- Single button to test -->
+    <k-button design="v:primary">Test Button</k-button>
+
+    <script type="module">
+      // Import components first
+      import './packages/vanilla/dist/index.mjs';
+
+      // Import theme system
+      import { initTheme, themes } from './packages/core/dist/theme/index.js';
+
+      console.log('Components imported');
+      console.log('Themes:', themes);
+
+      // Initialize theme
+      initTheme(themes, 'light');
+      console.log('Theme initialized');
+
+      // Check if CSS variables are set
+      setTimeout(() => {
+        const root = document.documentElement;
+        const primaryColor = getComputedStyle(root).getPropertyValue('--color-primary');
+        console.log('Primary color:', primaryColor);
+
+        // Check if button is registered
+        const button = document.querySelector('k-button');
+        console.log('Button element:', button);
+        console.log('Button shadow root:', button?.shadowRoot);
+
+        if (button?.shadowRoot) {
+          console.log('Shadow DOM content:', button.shadowRoot.innerHTML);
+        }
+      }, 100);
+    </script>
+  </body>
+</html>

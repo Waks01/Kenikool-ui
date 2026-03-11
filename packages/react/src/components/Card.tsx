@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { mergeClasses } from '@kenikool/core';
+import { mergeClasses, getTailwindCardClasses, parseDesign, DesignTokens } from '@kenikool/core';
 import { getAnimationVariant } from '../animations/variants';
+
+const isDev = typeof process !== 'undefined' && process.env?.NODE_ENV === 'development';
 
 /**
  * Props for the KCard component
@@ -10,15 +12,23 @@ import { getAnimationVariant } from '../animations/variants';
  * @extends {React.HTMLAttributes<HTMLDivElement>}
  *
  * @property {React.ReactNode} [children] - The card content
- * @property {'sm' | 'md' | 'lg'} [padding='md'] - The card padding
- * @property {'sm' | 'md' | 'lg' | 'none'} [shadow='md'] - The card shadow effect
- * @property {AnimationType} [animation='none'] - The animation effect to apply
+ * @property {string} [design] - Unified design tokens (e.g., "p:md sh:lg a:fade")
+ * @property {'sm' | 'md' | 'lg'} [padding='md'] - The card padding (deprecated, use design prop)
+ * @property {'sm' | 'md' | 'lg' | 'none'} [shadow='md'] - The card shadow effect (deprecated, use design prop)
+ * @property {AnimationType} [animation='none'] - The animation effect to apply (deprecated, use design prop)
  * @property {string} [role] - ARIA role for the card
  * @property {string} [ariaLabel] - Accessible label for screen readers
  *
  * @example
- * // Basic card
- * <KCard padding="md" shadow="lg">
+ * // Using unified design prop (recommended)
+ * <KCard design="p:md sh:lg a:fade">
+ *   <h2>Card Title</h2>
+ *   <p>Card content</p>
+ * </KCard>
+ *
+ * @example
+ * // Using individual props (deprecated)
+ * <KCard padding="md" shadow="lg" animation="fade">
  *   <h2>Card Title</h2>
  *   <p>Card content</p>
  * </KCard>
@@ -39,11 +49,13 @@ import { getAnimationVariant } from '../animations/variants';
 export interface KCardProps extends React.HTMLAttributes<HTMLDivElement> {
   /** The card content */
   children?: React.ReactNode;
-  /** The card padding - 'sm' (12px), 'md' (16px), or 'lg' (24px) */
+  /** Unified design tokens (e.g., "p:md sh:lg a:fade") */
+  design?: string;
+  /** The card padding - 'sm' (12px), 'md' (16px), or 'lg' (24px) @deprecated Use design prop instead */
   padding?: 'sm' | 'md' | 'lg';
-  /** The card shadow effect - 'sm' (small), 'md' (medium), 'lg' (large), or 'none' */
+  /** The card shadow effect - 'sm' (small), 'md' (medium), 'lg' (large), or 'none' @deprecated Use design prop instead */
   shadow?: 'sm' | 'md' | 'lg' | 'none';
-  /** The animation effect to apply to the card */
+  /** The animation effect to apply to the card @deprecated Use design prop instead */
   animation?:
     | 'pulse'
     | 'bounce'
@@ -73,8 +85,15 @@ export interface KCardProps extends React.HTMLAttributes<HTMLDivElement> {
  * @returns {React.ReactElement} The rendered card element
  *
  * @example
- * // Basic card with content
- * <KCard padding="md" shadow="lg">
+ * // Using unified design prop (recommended)
+ * <KCard design="p:md sh:lg a:fade">
+ *   <h2>Card Title</h2>
+ *   <p>Card content goes here</p>
+ * </KCard>
+ *
+ * @example
+ * // Using individual props (deprecated)
+ * <KCard padding="md" shadow="lg" animation="fade">
  *   <h2>Card Title</h2>
  *   <p>Card content goes here</p>
  * </KCard>
@@ -86,12 +105,6 @@ export interface KCardProps extends React.HTMLAttributes<HTMLDivElement> {
  * </KCard>
  *
  * @example
- * // Card with animation
- * <KCard animation="fade" padding="lg">
- *   <p>Fading card</p>
- * </KCard>
- *
- * @example
  * // Card with custom className
  * <KCard className="custom-card">
  *   <p>Custom styled card</p>
@@ -100,9 +113,10 @@ export interface KCardProps extends React.HTMLAttributes<HTMLDivElement> {
  * @see {@link https://kenikool-ui.dev/docs/card} Card Documentation
  */
 export const KCard: React.FC<KCardProps> = ({
-  padding = 'md',
-  shadow = 'md',
-  animation = 'none',
+  design,
+  padding: paddingProp = 'md',
+  shadow: shadowProp = 'md',
+  animation: animationProp = 'none',
   className,
   children,
   role,
@@ -112,13 +126,26 @@ export const KCard: React.FC<KCardProps> = ({
   onAnimationIteration,
   ...props
 }) => {
-  const classes = mergeClasses(
-    'k-card',
-    `k-card--padding-${padding}`,
-    `k-card--shadow-${shadow}`,
-    animation !== 'none' ? `k-card--${animation}` : '',
-    className
-  );
+  // Parse design tokens if provided (memoized)
+  const designTokens = React.useMemo(() => parseDesign(design), [design]);
+
+  // Merge design tokens with individual props (individual props take precedence)
+  const padding = paddingProp || designTokens.padding || 'md';
+  const shadow = shadowProp || designTokens.shadow || 'md';
+  const animation = animationProp !== 'none' ? animationProp : designTokens.animation || 'none';
+
+  // Warn about deprecated props if used (dev only)
+  if (
+    isDev &&
+    (paddingProp !== 'md' || shadowProp !== 'md' || (animationProp && animationProp !== 'none'))
+  ) {
+    console.warn(
+      'KCard: Using individual props (padding, shadow, animation) is deprecated. Use the design prop instead. Example: design="p:md sh:lg a:fade"'
+    );
+  }
+
+  const tailwindClasses = getTailwindCardClasses(padding, shadow, animation);
+  const classes = mergeClasses(tailwindClasses, className);
 
   const animationVariant = getAnimationVariant(animation);
 
@@ -162,7 +189,7 @@ export const KCard: React.FC<KCardProps> = ({
       onKeyDown={handleKeyDown}
       onFocus={handleFocus}
       onBlur={handleBlur}
-      {...animationVariant}
+      {...(animationVariant as any)}
       {...restProps}
     >
       {children}

@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ComponentProps } from '@kenikool/core';
-import { getComponentClasses } from '@kenikool/core';
+import { mergeClasses, getTailwindInputClasses, parseDesign, DesignTokens } from '@kenikool/core';
 import { getAnimationVariant } from '../animations/variants';
+
+const isDev = typeof process !== 'undefined' && process.env?.NODE_ENV === 'development';
 
 /**
  * Props for the KInput component
@@ -10,16 +12,21 @@ import { getAnimationVariant } from '../animations/variants';
  * @interface KInputProps
  * @extends {React.InputHTMLAttributes<HTMLInputElement>}
  *
- * @property {'sm' | 'md' | 'lg'} [size='md'] - The input size
+ * @property {string} [design] - Unified design tokens (e.g., "s:md a:fade")
+ * @property {'sm' | 'md' | 'lg'} [size='md'] - The input size (deprecated, use design prop)
  * @property {boolean} [error=false] - Whether the input has an error state
- * @property {AnimationType} [animation='none'] - The animation effect to apply
+ * @property {AnimationType} [animation='none'] - The animation effect to apply (deprecated, use design prop)
  * @property {string} [ariaLabel] - Accessible label for screen readers
  * @property {string} [ariaDescribedBy] - ID of element describing the input
  * @property {boolean} [ariaInvalid] - Whether the input has an invalid value
  *
  * @example
- * // Basic input
- * <KInput size="md" placeholder="Enter text" />
+ * // Using unified design prop (recommended)
+ * <KInput design="s:md a:fade" placeholder="Enter text" />
+ *
+ * @example
+ * // Using individual props (deprecated)
+ * <KInput size="md" animation="fade" placeholder="Enter text" />
  *
  * @example
  * // Input with error state
@@ -34,11 +41,13 @@ import { getAnimationVariant } from '../animations/variants';
  * <KInput aria-label="Email address" type="email" />
  */
 export interface KInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  /** The input size - 'sm' (small), 'md' (medium), or 'lg' (large) */
+  /** Unified design tokens (e.g., "s:md a:fade") */
+  design?: string;
+  /** The input size - 'sm' (small), 'md' (medium), or 'lg' (large) @deprecated Use design prop instead */
   size?: 'sm' | 'md' | 'lg';
   /** Whether the input has an error state (red border, error styling) */
   error?: boolean;
-  /** The animation effect to apply to the input */
+  /** The animation effect to apply to the input @deprecated Use design prop instead */
   animation?:
     | 'pulse'
     | 'bounce'
@@ -70,8 +79,12 @@ export interface KInputProps extends React.InputHTMLAttributes<HTMLInputElement>
  * @returns {React.ReactElement} The rendered input element
  *
  * @example
- * // Basic usage
- * <KInput size="md" placeholder="Enter text" />
+ * // Using unified design prop (recommended)
+ * <KInput design="s:md a:fade" placeholder="Enter text" />
+ *
+ * @example
+ * // Using individual props (deprecated)
+ * <KInput size="md" animation="fade" placeholder="Enter text" />
  *
  * @example
  * // Controlled component
@@ -83,20 +96,16 @@ export interface KInputProps extends React.InputHTMLAttributes<HTMLInputElement>
  * <KInput error placeholder="Invalid input" />
  *
  * @example
- * // With animation
- * <KInput animation="fade" placeholder="Fading input" />
- *
- * @example
  * // Disabled state
  * <KInput disabled placeholder="Disabled input" />
  *
  * @see {@link https://kenikool-ui.dev/docs/input} Input Documentation
  */
 export const KInput: React.FC<KInputProps> = ({
-  variant,
-  size = 'md',
+  design,
+  size: sizeProp = 'md',
   disabled = false,
-  animation = 'none',
+  animation: animationProp = 'none',
   className,
   type = 'text',
   value,
@@ -108,16 +117,23 @@ export const KInput: React.FC<KInputProps> = ({
   'aria-invalid': ariaInvalid,
   ...props
 }) => {
-  const classes = getComponentClasses('k-input', undefined, size, undefined, className);
+  // Parse design tokens if provided (memoized)
+  const designTokens = React.useMemo(() => parseDesign(design), [design]);
 
-  const finalClasses = [
-    classes,
-    error && 'k-input--error',
-    disabled && 'k-input--disabled',
-    animation !== 'none' ? `k-input--${animation}` : '',
-  ]
-    .filter(Boolean)
-    .join(' ');
+  // Merge design tokens with individual props (individual props take precedence)
+  const size = sizeProp || designTokens.size || 'md';
+  const animation = animationProp !== 'none' ? animationProp : designTokens.animation || 'none';
+
+  // Warn about deprecated props if used (dev only)
+  if (isDev && (sizeProp !== 'md' || (animationProp && animationProp !== 'none'))) {
+    console.warn(
+      'KInput: Using individual props (size, animation) is deprecated. Use the design prop instead. Example: design="s:md a:fade"'
+    );
+  }
+
+  const tailwindClasses = getTailwindInputClasses(size, animation);
+  const errorClasses = error ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : '';
+  const classes = mergeClasses(tailwindClasses, errorClasses, className);
 
   const animationVariant = getAnimationVariant(animation);
 
@@ -150,7 +166,7 @@ export const KInput: React.FC<KInputProps> = ({
   return (
     <motion.input
       type={type}
-      className={finalClasses}
+      className={classes}
       disabled={disabled}
       value={value}
       onChange={onChange}
@@ -161,7 +177,7 @@ export const KInput: React.FC<KInputProps> = ({
       onKeyDown={handleKeyDown}
       onFocus={handleFocus}
       onBlur={handleBlur}
-      {...animationVariant}
+      {...(animationVariant as any)}
       {...props}
     />
   );

@@ -21,10 +21,17 @@ const meta: Meta<typeof KInput> = {
     },
   },
   argTypes: {
+    design: {
+      control: 'text',
+      description: 'Unified design tokens (e.g., "s:md a:fade")',
+      table: {
+        type: { summary: 'string' },
+      },
+    },
     size: {
       control: 'select',
       options: ['sm', 'md', 'lg'],
-      description: 'Input size',
+      description: 'Input size (deprecated, use design prop)',
       table: {
         type: { summary: 'sm | md | lg' },
         defaultValue: { summary: 'md' },
@@ -76,7 +83,7 @@ const meta: Meta<typeof KInput> = {
         'flip',
         'none',
       ],
-      description: 'Animation effect applied to the input',
+      description: 'Animation effect applied to the input (deprecated, use design prop)',
       table: {
         type: {
           summary: 'pulse | bounce | fade | scale | shake | glow | slide | rotate | flip | none',
@@ -199,7 +206,7 @@ export const Focus: Story = {
     React.useEffect(() => {
       ref.current?.focus();
     }, []);
-    return <KInput {...args} ref={ref} />;
+    return React.createElement(KInput, { ...args });
   },
 };
 
@@ -459,17 +466,20 @@ export function ControlledInput() {
   },
   render: (args) => {
     const [value, setValue] = React.useState('');
-    return (
-      <div>
-        <KInput
-          {...args}
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-        />
-        <p style={{ marginTop: '1rem', fontSize: '0.875rem', color: '#666' }}>
-          Current value: {value || '(empty)'}
-        </p>
-      </div>
+    return React.createElement(
+      'div',
+      null,
+      React.createElement(KInput, {
+        ...args,
+        value,
+        onChange: (e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value),
+      }),
+      React.createElement(
+        'p',
+        { style: { marginTop: '1rem', fontSize: '0.875rem', color: '#666' } },
+        'Current value: ',
+        value || '(empty)'
+      )
     );
   },
 };
@@ -555,6 +565,88 @@ export const CustomClassName: Story = {
 };
 
 // ============================================================================
+// DESIGN PROP STORIES (RECOMMENDED)
+// ============================================================================
+
+/**
+ * Using unified design prop - Recommended approach
+ */
+export const DesignPropBasic: Story = {
+  args: {
+    design: 's:md',
+    placeholder: 'Design prop input',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Input using the unified design prop. This is the recommended approach. Format: "s:md a:fade"',
+      },
+    },
+  },
+};
+
+/**
+ * Design prop with animation
+ */
+export const DesignPropWithAnimation: Story = {
+  args: {
+    design: 's:lg a:glow',
+    placeholder: 'Glowing large input',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Input with design prop including size and animation tokens.',
+      },
+    },
+  },
+};
+
+/**
+ * Design prop sizes showcase
+ */
+export const DesignPropSizes: Story = {
+  render: () =>
+    React.createElement(
+      'div',
+      { style: { display: 'flex', flexDirection: 'column', gap: '1rem' } },
+      React.createElement(KInput, { design: 's:sm', placeholder: 'Small' }),
+      React.createElement(KInput, { design: 's:md', placeholder: 'Medium' }),
+      React.createElement(KInput, { design: 's:lg', placeholder: 'Large' })
+    ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'All input sizes using the design prop.',
+      },
+    },
+  },
+};
+
+/**
+ * Design prop animations showcase
+ */
+export const DesignPropAnimations: Story = {
+  render: () =>
+    React.createElement(
+      'div',
+      { style: { display: 'flex', flexDirection: 'column', gap: '1rem' } },
+      React.createElement(KInput, { design: 'a:pulse', placeholder: 'Pulse' }),
+      React.createElement(KInput, { design: 'a:fade', placeholder: 'Fade' }),
+      React.createElement(KInput, { design: 'a:glow', placeholder: 'Glow' }),
+      React.createElement(KInput, { design: 'a:slide', placeholder: 'Slide' })
+    ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'All input animations using the design prop.',
+      },
+    },
+  },
+};
+
+// ============================================================================
 // CODE EXAMPLES
 // ============================================================================
 
@@ -571,30 +663,33 @@ export const VanillaExample: Story = {
         story: `
 ## Vanilla JavaScript Implementation
 
+### Using Unified Design Prop (Recommended)
+
 \`\`\`html
-<!-- Basic input -->
-<k-input size="md" placeholder="Enter text"></k-input>
+<!-- Basic input with design prop -->
+<k-input design="s:md" placeholder="Enter text"></k-input>
 
-<!-- Input with error state -->
-<k-input error placeholder="Invalid input"></k-input>
-
-<!-- Disabled input -->
-<k-input disabled placeholder="Disabled"></k-input>
+<!-- Input with animation -->
+<k-input design="s:lg a:glow" placeholder="Glowing input"></k-input>
 
 <!-- All sizes -->
-<k-input size="sm" placeholder="Small"></k-input>
-<k-input size="md" placeholder="Medium"></k-input>
-<k-input size="lg" placeholder="Large"></k-input>
+<k-input design="s:sm" placeholder="Small"></k-input>
+<k-input design="s:md" placeholder="Medium"></k-input>
+<k-input design="s:lg" placeholder="Large"></k-input>
 
-<!-- Different input types -->
-<k-input type="email" placeholder="your@email.com"></k-input>
-<k-input type="password" placeholder="Password"></k-input>
-<k-input type="number" placeholder="Enter a number"></k-input>
+<!-- All animations -->
+<k-input design="a:pulse" placeholder="Pulsing"></k-input>
+<k-input design="a:fade" placeholder="Fading"></k-input>
+<k-input design="a:glow" placeholder="Glowing"></k-input>
+<k-input design="a:slide" placeholder="Sliding"></k-input>
+\`\`\`
 
-<!-- With animation -->
-<k-input animation="pulse" placeholder="Pulsing"></k-input>
-<k-input animation="glow" placeholder="Glowing"></k-input>
-<k-input animation="fade" placeholder="Fading"></k-input>
+### Using Individual Props (Deprecated)
+
+\`\`\`html
+<!-- These still work but are deprecated -->
+<k-input size="md" placeholder="Enter text"></k-input>
+<k-input size="lg" animation="glow" placeholder="Glowing"></k-input>
 \`\`\`
 
 ### Event Handling
@@ -645,32 +740,35 @@ export const ReactExample: Story = {
         story: `
 ## React Implementation
 
+### Using Unified Design Prop (Recommended)
+
 \`\`\`tsx
 import { KInput } from '@kenikool/react';
 
-// Basic input
-<KInput size="md" placeholder="Enter text" />
+// Basic input with design prop
+<KInput design="s:md" placeholder="Enter text" />
 
-// Input with error state
-<KInput error placeholder="Invalid input" />
-
-// Disabled input
-<KInput disabled placeholder="Disabled" />
+// Input with animation
+<KInput design="s:lg a:glow" placeholder="Glowing input" />
 
 // All sizes
-<KInput size="sm" placeholder="Small" />
-<KInput size="md" placeholder="Medium" />
-<KInput size="lg" placeholder="Large" />
+<KInput design="s:sm" placeholder="Small" />
+<KInput design="s:md" placeholder="Medium" />
+<KInput design="s:lg" placeholder="Large" />
 
-// Different input types
-<KInput type="email" placeholder="your@email.com" />
-<KInput type="password" placeholder="Password" />
-<KInput type="number" placeholder="Enter a number" />
+// All animations
+<KInput design="a:pulse" placeholder="Pulsing" />
+<KInput design="a:fade" placeholder="Fading" />
+<KInput design="a:glow" placeholder="Glowing" />
+<KInput design="a:slide" placeholder="Sliding" />
+\`\`\`
 
-// With animation
-<KInput animation="pulse" placeholder="Pulsing" />
-<KInput animation="glow" placeholder="Glowing" />
-<KInput animation="fade" placeholder="Fading" />
+### Using Individual Props (Deprecated)
+
+\`\`\`tsx
+// These still work but are deprecated
+<KInput size="md" placeholder="Enter text" />
+<KInput size="lg" animation="glow" placeholder="Glowing" />
 \`\`\`
 
 ### Uncontrolled Component

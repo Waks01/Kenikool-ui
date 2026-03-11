@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kenikool UI - Test</title>
+    <script type="module">
+      // Initialize theme FIRST before components render
+      import {
+        initTheme,
+        switchTheme,
+        loadSavedTheme,
+        themes,
+      } from './packages/core/dist/theme/index.js';
+
+      initTheme(themes, 'light');
+      loadSavedTheme();
+
+      // THEN import components
+      import './packages/vanilla/dist/index.mjs';
+
+      // Wait for components to be defined
+      await customElements.whenDefined('k-button');
+      await customElements.whenDefined('k-input');
+      await customElements.whenDefined('k-card');
+
+      // Setup theme selector
+      const themeSelect = document.getElementById('theme-select');
+      themeSelect.addEventListener('change', (e) => {
+        switchTheme(e.target.value);
+      });
+
+      console.log('All components loaded and theme initialized');
+    </script>
+  </head>
+  <body>
+    <div style="margin-bottom: 20px">
+      <label for="theme-select">Select Theme:</label>
+      <select id="theme-select" style="padding: 8px; font-size: 14px">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="ocean">Ocean</option>
+        <option value="sunset">Sunset</option>
+        <option value="forest">Forest</option>
+      </select>
+    </div>
+
+    <h1>Kenikool UI - Component Test</h1>
+
+    <k-button design="v:primary">Primary</k-button>
+    <k-button design="v:secondary">Secondary</k-button>
+    <k-button design="v:danger">Danger</k-button>
+    <k-button design="v:success">Success</k-button>
+    <k-button design="v:warning">Warning</k-button>
+    <k-button design="v:info">Info</k-button>
+    <k-button design="v:ghost">Ghost</k-button>
+    <k-button design="v:link">Link</k-button>
+    <k-button design="v:gradient">Gradient</k-button>
+    <k-button design="v:outline">Outline</k-button>
+
+    <k-button design="v:primary s:sm">Small</k-button>
+    <k-button design="v:primary s:md">Medium</k-button>
+    <k-button design="v:primary s:lg">Large</k-button>
+
+    <k-button design="v:primary a:pulse">Pulse</k-button>
+    <k-button design="v:primary a:bounce">Bounce</k-button>
+    <k-button design="v:primary a:fade">Fade</k-button>
+    <k-button design="v:primary a:scale">Scale</k-button>
+    <k-button design="v:primary a:shake">Shake</k-button>
+    <k-button design="v:primary a:glow">Glow</k-button>
+    <k-button design="v:primary a:slide">Slide</k-button>
+    <k-button design="v:primary a:rotate">Rotate</k-button>
+    <k-button design="v:primary a:flip">Flip</k-button>
+
+    <k-button design="v:primary l:spinner" loading>Load</k-button>
+    <k-button design="v:primary l:dots" loading>Load</k-button>
+    <k-button design="v:primary l:pulse" loading>Load</k-button>
+    <k-button design="v:primary l:bars" loading>Load</k-button>
+    <k-button design="v:primary l:ring" loading>Load</k-button>
+    <k-button design="v:primary l:dual-ring" loading>Load</k-button>
+    <k-button design="v:primary l:ripple" loading>Load</k-button>
+    <k-button design="v:primary l:wave" loading>Load</k-button>
+    <k-button design="v:primary l:skeleton" loading>Load</k-button>
+    <k-button design="v:primary l:shimmer" loading>Load</k-button>
+    <k-button design="v:primary l:orbit" loading>Load</k-button>
+    <k-button design="v:primary l:bounce" loading>Load</k-button>
+    <k-button design="v:primary l:flip" loading>Load</k-button>
+    <k-button design="v:primary l:morph" loading>Load</k-button>
+    <k-button design="v:primary l:gradient-spin" loading>Load</k-button>
+    <k-button design="v:primary l:dots-wave" loading>Load</k-button>
+    <k-button design="v:primary l:progress" loading>Load</k-button>
+    <k-button design="v:primary l:hourglass" loading>Load</k-button>
+
+    <k-input design="s:sm" placeholder="Small input and date" type="number"></k-input>
+    <k-input design="s:md" placeholder="Medium input"></k-input>
+    <k-input design="s:lg" placeholder="Large input"></k-input>
+
+    <k-card design="p:md sh:lg">
+      <h3>Card Title</h3>
+      <p>This is a card component.</p>
+    </k-card>
+  </body>
+</html>

@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { KCard } from '../Card';
 
@@ -346,7 +346,94 @@ describe('KCard', () => {
     });
   });
 
-  describe('accessibility', () => {
+  describe('design prop', () => {
+    it('renders with design prop for padding', () => {
+      const { container } = render(<KCard design="p:lg">Content</KCard>);
+      const card = container.querySelector('.k-card');
+      expect(card?.className).toContain('k-card--padding-lg');
+    });
+
+    it('renders with design prop for shadow', () => {
+      const { container } = render(<KCard design="sh:lg">Content</KCard>);
+      const card = container.querySelector('.k-card');
+      expect(card?.className).toContain('k-card--shadow-lg');
+    });
+
+    it('renders with design prop for animation', () => {
+      const { container } = render(<KCard design="a:fade">Content</KCard>);
+      const card = container.querySelector('.k-card');
+      expect(card?.className).toContain('k-card--fade');
+    });
+
+    it('renders with multiple design tokens', () => {
+      const { container } = render(<KCard design="p:lg sh:md a:glow">Content</KCard>);
+      const card = container.querySelector('.k-card');
+      expect(card?.className).toContain('k-card--padding-lg');
+      expect(card?.className).toContain('k-card--shadow-md');
+      expect(card?.className).toContain('k-card--glow');
+    });
+
+    it('individual props override design tokens', () => {
+      const { container } = render(<KCard design="p:md sh:md" padding="lg">Content</KCard>);
+      const card = container.querySelector('.k-card');
+      expect(card?.className).toContain('k-card--padding-lg');
+      expect(card?.className).toContain('k-card--shadow-md');
+    });
+
+    it('renders with design prop and custom className', () => {
+      const { container } = render(<KCard design="p:lg sh:lg a:fade" className="custom">Content</KCard>);
+      const card = container.querySelector('.k-card');
+      expect(card?.className).toContain('k-card--padding-lg');
+      expect(card?.className).toContain('k-card--shadow-lg');
+      expect(card?.className).toContain('k-card--fade');
+      expect(card?.className).toContain('custom');
+    });
+
+    it('handles all animation types in design prop', () => {
+      const animations = ['pulse', 'bounce', 'fade', 'scale', 'shake', 'glow', 'slide', 'rotate', 'flip'];
+      animations.forEach((anim) => {
+        const { container } = render(<KCard design={`a:${anim}`}>Content</KCard>);
+        const card = container.querySelector('.k-card');
+        expect(card?.className).toContain(`k-card--${anim}`);
+      });
+    });
+
+    it('handles all padding types in design prop', () => {
+      const paddings = ['sm', 'md', 'lg'];
+      paddings.forEach((pad) => {
+        const { container } = render(<KCard design={`p:${pad}`}>Content</KCard>);
+        const card = container.querySelector('.k-card');
+        expect(card?.className).toContain(`k-card--padding-${pad}`);
+      });
+    });
+
+    it('handles all shadow types in design prop', () => {
+      const shadows = ['sm', 'md', 'lg', 'none'];
+      shadows.forEach((shadow) => {
+        const { container } = render(<KCard design={`sh:${shadow}`}>Content</KCard>);
+        const card = container.querySelector('.k-card');
+        expect(card?.className).toContain(`k-card--shadow-${shadow}`);
+      });
+    });
+  });
+
+  describe('deprecated props warning', () => {
+    it('does not warn when using design prop only', () => {
+      const consoleSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      render(<KCard design="p:md sh:lg a:fade">Content</KCard>);
+      expect(consoleSpy).not.toHaveBeenCalled();
+      consoleSpy.mockRestore();
+    });
+
+    it('warns when using individual padding prop', () => {
+      const consoleSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      render(<KCard padding="lg">Content</KCard>);
+      if (process.env.NODE_ENV === 'development') {
+        expect(consoleSpy).toHaveBeenCalled();
+      }
+      consoleSpy.mockRestore();
+    });
+  });
     it('supports aria-label attribute', () => {
       const { container } = render(<KCard aria-label="Product card">Content</KCard>);
       const card = container.querySelector("[aria-label='Product card']");

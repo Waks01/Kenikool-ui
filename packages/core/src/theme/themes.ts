@@ -1,0 +1,111 @@
+export interface Theme {
+  primary: string;
+  primaryDark: string;
+  secondary: string;
+  secondaryDark: string;
+  danger: string;
+  dangerDark: string;
+  success: string;
+  successDark: string;
+  warning: string;
+  warningDark: string;
+  info: string;
+  infoDark: string;
+  bg: string;
+  text: string;
+  border: string;
+  error: string;
+}
+
+export const themes: Record<string, Theme> = {
+  light: {
+    primary: '#3b82f6',
+    primaryDark: '#1e40af',
+    secondary: '#6b7280',
+    secondaryDark: '#374151',
+    danger: '#ef4444',
+    dangerDark: '#dc2626',
+    success: '#10b981',
+    successDark: '#059669',
+    warning: '#f59e0b',
+    warningDark: '#d97706',
+    info: '#0ea5e9',
+    infoDark: '#0284c7',
+    bg: '#ffffff',
+    text: '#1f2937',
+    border: '#d1d5db',
+    error: '#b91c1c',
+  },
+  dark: {
+    primary: '#1e40af',
+    primaryDark: '#1e3a8a',
+    secondary: '#374151',
+    secondaryDark: '#1f2937',
+    danger: '#dc2626',
+    dangerDark: '#991b1b',
+    success: '#059669',
+    successDark: '#047857',
+    warning: '#d97706',
+    warningDark: '#b45309',
+    info: '#0284c7',
+    infoDark: '#0369a1',
+    bg: '#1f2937',
+    text: '#f3f4f6',
+    border: '#374151',
+    error: '#7f1d1d',
+  },
+  ocean: {
+    primary: '#0ea5e9',
+    primaryDark: '#0284c7',
+    secondary: '#06b6d4',
+    secondaryDark: '#0891b2',
+    danger: '#f43f5e',
+    dangerDark: '#e11d48',
+    success: '#14b8a6',
+    successDark: '#0d9488',
+    warning: '#f59e0b',
+    warningDark: '#d97706',
+    info: '#06b6d4',
+    infoDark: '#0891b2',
+    bg: '#f0f9ff',
+    text: '#0c2340',
+    border: '#bae6fd',
+    error: '#be185d',
+  },
+  sunset: {
+    primary: '#f97316',
+    primaryDark: '#ea580c',
+    secondary: '#ec4899',
+    secondaryDark: '#be185d',
+    danger: '#dc2626',
+    dangerDark: '#991b1b',
+    success: '#84cc16',
+    successDark: '#65a30d',
+    warning: '#eab308',
+    warningDark: '#ca8a04',
+    info: '#f97316',
+    infoDark: '#ea580c',
+    bg: '#fef3c7',
+    text: '#78350f',
+    border: '#fcd34d',
+    error: '#7f1d1d',
+  },
+  forest: {
+    primary: '#16a34a',
+    primaryDark: '#15803d',
+    secondary: '#059669',
+    secondaryDark: '#047857',
+    danger: '#dc2626',
+    dangerDark: '#991b1b',
+    success: '#22c55e',
+    successDark: '#16a34a',
+    warning: '#eab308',
+    warningDark: '#ca8a04',
+    info: '#06b6d4',
+    infoDark: '#0891b2',
+    bg: '#f0fdf4',
+    text: '#166534',
+    border: '#bbf7d0',
+    error: '#7f1d1d',
+  },
+};

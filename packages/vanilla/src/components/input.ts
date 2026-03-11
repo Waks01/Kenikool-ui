@@ -4,16 +4,25 @@
  * A customizable input component with support for sizes, error states, and focus styling.
  *
  * @example
- * <k-input size="md" placeholder="Enter text"></k-input>
+ * // Using unified design attribute (recommended)
+ * <k-input design="s:md a:fade" placeholder="Enter text"></k-input>
+ *
+ * @example
+ * // Using individual attributes (deprecated)
+ * <k-input size="md" animation="fade" placeholder="Enter text"></k-input>
  */
 
+import { parseDesign } from '@kenikool/core';
+
 export class KInput extends HTMLElement {
+  private _design: string = '';
   private _size: string = 'md';
   private _disabled: boolean = false;
   private _error: boolean = false;
   private _placeholder: string = '';
   private _value: string = '';
   private _animation: string = 'none';
+  private _type: string = 'text';
   private _inputElement: HTMLInputElement | null = null;
   private _mutationObserver: MutationObserver | null = null;
 
@@ -23,6 +32,13 @@ export class KInput extends HTMLElement {
   }
 
   connectedCallback() {
+    // Read design attribute on initial connection
+    const design = this.getAttribute('design');
+    if (design) {
+      this._design = design;
+      this.parseDesignTokens();
+    }
+
     this.render();
     this.setupEventListeners();
 
@@ -51,6 +67,10 @@ export class KInput extends HTMLElement {
 
   private updateAttribute(name: string, value: string | null) {
     switch (name) {
+      case 'design':
+        this._design = value || '';
+        this.parseDesignTokens();
+        break;
       case 'size':
         this._size = value || 'md';
         break;
@@ -69,6 +89,24 @@ export class KInput extends HTMLElement {
       case 'animation':
         this._animation = value || 'none';
         break;
+      case 'type':
+        this._type = value || 'text';
+        break;
+    }
+  }
+
+  private parseDesignTokens() {
+    if (!this._design) return;
+
+    const tokens = parseDesign(this._design);
+    if (tokens.size) this._size = tokens.size;
+    if (tokens.animation) this._animation = tokens.animation;
+
+    // Warn about deprecated attributes if design is used
+    if (this.hasAttribute('size') || this.hasAttribute('animation')) {
+      console.warn(
+        'k-input: Using individual attributes (size, animation) is deprecated. Use the design attribute instead. Example: design="s:md a:fade"'
+      );
     }
   }
 
@@ -82,7 +120,7 @@ export class KInput extends HTMLElement {
       <style>${styles}</style>
       <input 
         class="${classes}" 
-        type="text"
+        type="${this._type}"
         placeholder="${this._placeholder}"
         value="${this._value}"
         ${this._disabled ? 'disabled' : ''}${attributesStr}
@@ -417,16 +455,16 @@ export class KInput extends HTMLElement {
 
   static get observedAttributes() {
     return [
+      'design',
       'size',
       'disabled',
       'error',
       'placeholder',
       'value',
       'animation',
+      'type',
       'aria-label',
       'aria-describedby',
     ];
   }
 }
-
-customElements.define('k-input', KInput);

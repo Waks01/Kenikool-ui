@@ -4,13 +4,24 @@
  * A customizable card component with support for padding and shadow variants.
  *
  * @example
- * <k-card padding="md" shadow="lg">
+ * // Using unified design attribute (recommended)
+ * <k-card design="p:md sh:lg a:fade">
+ *   <h2>Card Title</h2>
+ *   <p>Card content goes here</p>
+ * </k-card>
+ *
+ * @example
+ * // Using individual attributes (deprecated)
+ * <k-card padding="md" shadow="lg" animation="fade">
  *   <h2>Card Title</h2>
  *   <p>Card content goes here</p>
  * </k-card>
  */
 
+import { parseDesign } from '@kenikool/core';
+
 export class KCard extends HTMLElement {
+  private _design: string = '';
   private _padding: string = 'md';
   private _shadow: string = 'md';
   private _animation: string = 'none';
@@ -21,6 +32,13 @@ export class KCard extends HTMLElement {
   }
 
   connectedCallback() {
+    // Read design attribute on initial connection
+    const design = this.getAttribute('design');
+    if (design) {
+      this._design = design;
+      this.parseDesignTokens();
+    }
+
     this.render();
   }
 
@@ -33,6 +51,10 @@ export class KCard extends HTMLElement {
 
   private updateAttribute(name: string, value: string) {
     switch (name) {
+      case 'design':
+        this._design = value || '';
+        this.parseDesignTokens();
+        break;
       case 'padding':
         this._padding = value || 'md';
         break;
@@ -42,6 +64,26 @@ export class KCard extends HTMLElement {
       case 'animation':
         this._animation = value || 'none';
         break;
+    }
+  }
+
+  private parseDesignTokens() {
+    if (!this._design) return;
+
+    const tokens = parseDesign(this._design);
+    if (tokens.padding) this._padding = tokens.padding;
+    if (tokens.shadow) this._shadow = tokens.shadow;
+    if (tokens.animation) this._animation = tokens.animation;
+
+    // Warn about deprecated attributes if design is used
+    if (
+      this.hasAttribute('padding') ||
+      this.hasAttribute('shadow') ||
+      this.hasAttribute('animation')
+    ) {
+      console.warn(
+        'k-card: Using individual attributes (padding, shadow, animation) is deprecated. Use the design attribute instead. Example: design="p:md sh:lg a:fade"'
+      );
     }
   }
 
@@ -74,26 +116,6 @@ export class KCard extends HTMLElement {
   private getStyles(): string {
     return `
       :host {
-        --color-bg: #ffffff;
-        --color-text: #1f2937;
-        --color-border: #e5e7eb;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        :host {
-          --color-bg: #1f2937;
-          --color-text: #f3f4f6;
-          --color-border: #374151;
-        }
-      }
-
-      [data-theme="dark"] :host {
-        --color-bg: #1f2937;
-        --color-text: #f3f4f6;
-        --color-border: #374151;
-      }
-
-      [data-theme="light"] :host {
         --color-bg: #ffffff;
         --color-text: #1f2937;
         --color-border: #e5e7eb;
@@ -267,8 +289,6 @@ export class KCard extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ['padding', 'shadow', 'animation'];
+    return ['design', 'padding', 'shadow', 'animation'];
   }
 }
-
-customElements.define('k-card', KCard);

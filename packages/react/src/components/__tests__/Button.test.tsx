@@ -286,7 +286,93 @@ describe('KButton', () => {
     });
   });
 
-  describe('accessibility', () => {
+  describe('design prop', () => {
+    it('renders with design prop for variant', () => {
+      render(<KButton design="v:primary">Button</KButton>);
+      const button = screen.getByRole('button');
+      expect(button.className).toContain('k-button--primary');
+    });
+
+    it('renders with design prop for size', () => {
+      render(<KButton design="s:lg">Button</KButton>);
+      const button = screen.getByRole('button');
+      expect(button.className).toContain('k-button--lg');
+    });
+
+    it('renders with design prop for animation', () => {
+      render(<KButton design="a:pulse">Button</KButton>);
+      const button = screen.getByRole('button');
+      expect(button.className).toContain('k-button--pulse');
+    });
+
+    it('renders with multiple design tokens', () => {
+      render(<KButton design="v:danger s:sm a:shake">Button</KButton>);
+      const button = screen.getByRole('button');
+      expect(button.className).toContain('k-button--danger');
+      expect(button.className).toContain('k-button--sm');
+      expect(button.className).toContain('k-button--shake');
+    });
+
+    it('individual props override design tokens', () => {
+      render(<KButton design="v:primary s:md" variant="secondary">Button</KButton>);
+      const button = screen.getByRole('button');
+      expect(button.className).toContain('k-button--secondary');
+      expect(button.className).toContain('k-button--md');
+    });
+
+    it('renders with design prop and custom className', () => {
+      render(<KButton design="v:primary s:lg" className="custom">Button</KButton>);
+      const button = screen.getByRole('button');
+      expect(button.className).toContain('k-button--primary');
+      expect(button.className).toContain('k-button--lg');
+      expect(button.className).toContain('custom');
+    });
+
+    it('handles all animation types in design prop', () => {
+      const animations = ['pulse', 'bounce', 'fade', 'scale', 'shake', 'glow', 'slide', 'rotate', 'flip'];
+      animations.forEach((anim) => {
+        const { container } = render(<KButton design={`a:${anim}`}>Button</KButton>);
+        const button = container.querySelector('button');
+        expect(button?.className).toContain(`k-button--${anim}`);
+      });
+    });
+
+    it('handles all variant types in design prop', () => {
+      const variants = ['primary', 'secondary', 'danger'];
+      variants.forEach((variant) => {
+        const { container } = render(<KButton design={`v:${variant}`}>Button</KButton>);
+        const button = container.querySelector('button');
+        expect(button?.className).toContain(`k-button--${variant}`);
+      });
+    });
+
+    it('handles all size types in design prop', () => {
+      const sizes = ['sm', 'md', 'lg'];
+      sizes.forEach((size) => {
+        const { container } = render(<KButton design={`s:${size}`}>Button</KButton>);
+        const button = container.querySelector('button');
+        expect(button?.className).toContain(`k-button--${size}`);
+      });
+    });
+  });
+
+  describe('deprecated props warning', () => {
+    it('does not warn when using design prop only', () => {
+      const consoleSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      render(<KButton design="v:primary s:md">Button</KButton>);
+      expect(consoleSpy).not.toHaveBeenCalled();
+      consoleSpy.mockRestore();
+    });
+
+    it('warns when using individual variant prop', () => {
+      const consoleSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      render(<KButton variant="primary">Button</KButton>);
+      if (process.env.NODE_ENV === 'development') {
+        expect(consoleSpy).toHaveBeenCalled();
+      }
+      consoleSpy.mockRestore();
+    });
+  });
     it('supports aria-label attribute', () => {
       render(<KButton aria-label="Close dialog">×</KButton>);
       const button = screen.getByRole('button', { name: 'Close dialog' });

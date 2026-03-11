@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minimal Test</title>
+  </head>
+  <body>
+    <h1>Minimal Test</h1>
+
+    <!-- Single button to test -->
+    <k-button design="v:primary">Test Button</k-button>
+
+    <script type="module">
+      console.log('Script starting...');
+
+      try {
+        // Import components
+        await import('./packages/vanilla/dist/index.mjs');
+        console.log('Components imported successfully');
+
+        // Import theme system
+        const themeModule = await import('./packages/core/dist/theme/index.js');
+        console.log('Theme module imported:', themeModule);
+
+        // Initialize theme
+        themeModule.initTheme(themeModule.themes, 'light');
+        console.log('Theme initialized');
+
+        // Check if button is registered
+        setTimeout(() => {
+          const button = document.querySelector('k-button');
+          console.log('Button element:', button);
+          console.log('Button constructor:', button?.constructor?.name);
+          console.log('Button shadow root:', button?.shadowRoot);
+
+          if (button?.shadowRoot) {
+            console.log('Shadow DOM HTML:', button.shadowRoot.innerHTML);
+          }
+
+          // Check CSS variables
+          const root = document.documentElement;
+          const primaryColor = getComputedStyle(root).getPropertyValue('--color-primary');
+          console.log('Primary color CSS variable:', primaryColor);
+        }, 100);
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    </script>
+  </body>
+</html>

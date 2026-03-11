@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loader Test</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 40px;
+        background: #f5f5f5;
+      }
+      .loader-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 30px;
+        max-width: 1000px;
+      }
+      .loader-item {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .loader-item label {
+        display: block;
+        margin-top: 10px;
+        font-size: 12px;
+        color: #666;
+      }
+      k-button {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Loader Animation Test</h1>
+    <div class="loader-grid">
+      <div class="loader-item">
+        <k-button design="v:primary l:skeleton" loading>Skeleton</k-button>
+        <label>l:skeleton</label>
+      </div>
+      <div class="loader-item">
+        <k-button design="v:primary l:shimmer" loading>Shimmer</k-button>
+        <label>l:shimmer</label>
+      </div>
+      <div class="loader-item">
+        <k-button design="v:primary l:orbit" loading>Orbit</k-button>
+        <label>l:orbit</label>
+      </div>
+      <div class="loader-item">
+        <k-button design="v:primary l:progress" loading>Progress</k-button>
+        <label>l:progress</label>
+      </div>
+      <div class="loader-item">
+        <k-button design="v:primary l:spinner" loading>Spinner</k-button>
+        <label>l:spinner</label>
+      </div>
+      <div class="loader-item">
+        <k-button design="v:primary l:dots" loading>Dots</k-button>
+        <label>l:dots</label>
+      </div>
+      <div class="loader-item">
+        <k-button design="v:primary l:pulse" loading>Pulse</k-button>
+        <label>l:pulse</label>
+      </div>
+      <div class="loader-item">
+        <k-button design="v:primary l:bars" loading>Bars</k-button>
+        <label>l:bars</label>
+      </div>
+      <div class="loader-item">
+        <k-button design="v:primary l:ring" loading>Ring</k-button>
+        <label>l:ring</label>
+      </div>
+      <div class="loader-item">
+        <k-button design="v:primary l:dual-ring" loading>Dual Ring</k-button>
+        <label>l:dual-ring</label>
+      </div>
+      <div class="loader-item">
+        <k-button design="v:primary l:ripple" loading>Ripple</k-button>
+        <label>l:ripple</label>
+      </div>
+      <div class="loader-item">
+        <k-button design="v:primary l:wave" loading>Wave</k-button>
+        <label>l:wave</label>
+      </div>
+      <div class="loader-item">
+        <k-button design="v:primary l:bounce" loading>Bounce</k-button>
+        <label>l:bounce</label>
+      </div>
+      <div class="loader-item">
+        <k-button design="v:primary l:flip" loading>Flip</k-button>
+        <label>l:flip</label>
+      </div>
+      <div class="loader-item">
+        <k-button design="v:primary l:morph" loading>Morph</k-button>
+        <label>l:morph</label>
+      </div>
+      <div class="loader-item">
+        <k-button design="v:primary l:gradient-spin" loading>Gradient Spin</k-button>
+        <label>l:gradient-spin</label>
+      </div>
+      <div class="loader-item">
+        <k-button design="v:primary l:dots-wave" loading>Dots Wave</k-button>
+        <label>l:dots-wave</label>
+      </div>
+      <div class="loader-item">
+        <k-button design="v:primary l:hourglass" loading>Hourglass</k-button>
+        <label>l:hourglass</label>
+      </div>
+    </div>
+
+    <script type="module">
+      import { KButton } from './packages/vanilla/dist/index.mjs';
+
+      console.log('✅ Loaders loaded');
+    </script>
+  </body>
+</html>

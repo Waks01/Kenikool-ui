@@ -65,14 +65,14 @@ npm install react@^16.8.0
     <link rel="stylesheet" href="node_modules/@kenikool/ui/dist/styles.css" />
   </head>
   <body>
-    <!-- Button Component -->
-    <k-button variant="primary" size="md">Click me</k-button>
+    <!-- Button Component with unified design prop -->
+    <k-button design="v:primary s:md">Click me</k-button>
 
-    <!-- Input Component -->
-    <k-input placeholder="Enter text" aria-label="Text input"></k-input>
+    <!-- Input Component with unified design prop -->
+    <k-input design="s:md" placeholder="Enter text" aria-label="Text input"></k-input>
 
-    <!-- Card Component -->
-    <k-card padding="md" shadow="lg">
+    <!-- Card Component with unified design prop -->
+    <k-card design="p:md sh:lg">
       <h2>Card Title</h2>
       <p>Card content goes here</p>
     </k-card>
@@ -93,16 +93,14 @@ import '@kenikool/ui/css';
 export function App() {
   return (
     <>
-      {/* Button Component */}
-      <KButton variant="primary" size="md">
-        Click me
-      </KButton>
+      {/* Button Component with unified design prop */}
+      <KButton design="v:primary s:md">Click me</KButton>
 
-      {/* Input Component */}
-      <KInput placeholder="Enter text" aria-label="Text input" />
+      {/* Input Component with unified design prop */}
+      <KInput design="s:md" placeholder="Enter text" aria-label="Text input" />
 
-      {/* Card Component */}
-      <KCard padding="md" shadow="lg">
+      {/* Card Component with unified design prop */}
+      <KCard design="p:md sh:lg">
         <h2>Card Title</h2>
         <p>Card content goes here</p>
       </KCard>
@@ -117,31 +115,68 @@ export function App() {
 
 A customizable button component with multiple variants, sizes, and animations.
 
+#### Unified Design Prop (Recommended)
+
 **Vanilla:**
 
 ```html
-<k-button variant="primary" size="md" animation="pulse"> Click me </k-button>
+<k-button design="v:primary s:md a:pulse">Click me</k-button>
 ```
 
 **React:**
+
+```tsx
+<KButton design="v:primary s:md a:pulse">Click me</KButton>
+```
+
+#### Design Token Format
+
+The `design` prop uses space-separated prefixed tokens:
+
+```
+design="v:primary s:md a:pulse"
+       ↑       ↑   ↑   ↑
+       |       |   |   └─ animation
+       |       |   └───── size
+       |       └───────── variant
+       └───────────────── prefix
+```
+
+#### Available Tokens
+
+| Prefix | Token Name | Values                                                             | Example     |
+| ------ | ---------- | ------------------------------------------------------------------ | ----------- |
+| `v:`   | variant    | primary, secondary, danger                                         | `v:primary` |
+| `s:`   | size       | sm, md, lg                                                         | `s:md`      |
+| `a:`   | animation  | pulse, bounce, fade, scale, shake, glow, slide, rotate, flip, none | `a:pulse`   |
+
+#### Props & Attributes
+
+| Prop/Attribute      | Type                            | Default  | Description                                            |
+| ------------------- | ------------------------------- | -------- | ------------------------------------------------------ |
+| `design`            | string                          | -        | Unified design tokens (e.g., "v:primary s:md a:pulse") |
+| `disabled`          | boolean                         | false    | Disable button interaction                             |
+| `type`              | 'button' \| 'submit' \| 'reset' | 'button' | HTML button type                                       |
+| `aria-label`        | string                          | -        | Accessible label for screen readers                    |
+| `className` (React) | string                          | -        | Additional CSS classes                                 |
+
+#### Backward Compatibility (Deprecated)
+
+Individual props are still supported but deprecated. Use the `design` prop instead:
+
+**Vanilla (deprecated):**
+
+```html
+<k-button variant="primary" size="md" animation="pulse">Click me</k-button>
+```
+
+**React (deprecated):**
 
 ```tsx
 <KButton variant="primary" size="md" animation="pulse">
   Click me
 </KButton>
 ```
-
-#### Props & Attributes
-
-| Prop/Attribute      | Type                                 | Default   | Description                         |
-| ------------------- | ------------------------------------ | --------- | ----------------------------------- |
-| `variant`           | 'primary' \| 'secondary' \| 'danger' | 'primary' | Button style variant                |
-| `size`              | 'sm' \| 'md' \| 'lg'                 | 'md'      | Button size                         |
-| `disabled`          | boolean                              | false     | Disable button interaction          |
-| `animation`         | AnimationType                        | 'none'    | Animation effect                    |
-| `type`              | 'button' \| 'submit' \| 'reset'      | 'button'  | HTML button type                    |
-| `aria-label`        | string                               | -         | Accessible label for screen readers |
-| `className` (React) | string                               | -         | Additional CSS classes              |
 
 #### Styling Details
 
@@ -157,31 +192,68 @@ A customizable button component with multiple variants, sizes, and animations.
 
 A customizable input component with multiple sizes and states.
 
+#### Unified Design Prop (Recommended)
+
 **Vanilla:**
 
 ```html
-<k-input size="md" placeholder="Enter text" aria-label="Email"></k-input>
+<k-input design="s:md a:fade" placeholder="Enter text" aria-label="Email"></k-input>
 ```
 
 **React:**
 
 ```tsx
-<KInput size="md" placeholder="Enter text" aria-label="Email" />
+<KInput design="s:md a:fade" placeholder="Enter text" aria-label="Email" />
 ```
+
+#### Design Token Format
+
+The `design` prop uses space-separated prefixed tokens:
+
+```
+design="s:md a:fade"
+       ↑   ↑   ↑
+       |   |   └─ animation
+       |   └───── size
+       └───────── prefix
+```
+
+#### Available Tokens
+
+| Prefix | Token Name | Values                                                             | Example  |
+| ------ | ---------- | ------------------------------------------------------------------ | -------- |
+| `s:`   | size       | sm, md, lg                                                         | `s:md`   |
+| `a:`   | animation  | pulse, bounce, fade, scale, shake, glow, slide, rotate, flip, none | `a:fade` |
 
 #### Props & Attributes
 
-| Prop/Attribute      | Type                 | Default | Description                              |
-| ------------------- | -------------------- | ------- | ---------------------------------------- |
-| `size`              | 'sm' \| 'md' \| 'lg' | 'md'    | Input size                               |
-| `disabled`          | boolean              | false   | Disable input interaction                |
-| `error`             | boolean              | false   | Show error state                         |
-| `placeholder`       | string               | -       | Placeholder text                         |
-| `type`              | string               | 'text'  | HTML input type                          |
-| `value`             | string               | -       | Input value (React controlled)           |
-| `aria-label`        | string               | -       | Accessible label for screen readers      |
-| `aria-invalid`      | boolean              | -       | Mark input as invalid for screen readers |
-| `className` (React) | string               | -       | Additional CSS classes                   |
+| Prop/Attribute      | Type    | Default | Description                                 |
+| ------------------- | ------- | ------- | ------------------------------------------- |
+| `design`            | string  | -       | Unified design tokens (e.g., "s:md a:fade") |
+| `disabled`          | boolean | false   | Disable input interaction                   |
+| `error`             | boolean | false   | Show error state                            |
+| `placeholder`       | string  | -       | Placeholder text                            |
+| `type`              | string  | 'text'  | HTML input type                             |
+| `value`             | string  | -       | Input value (React controlled)              |
+| `aria-label`        | string  | -       | Accessible label for screen readers         |
+| `aria-invalid`      | boolean | -       | Mark input as invalid for screen readers    |
+| `className` (React) | string  | -       | Additional CSS classes                      |
+
+#### Backward Compatibility (Deprecated)
+
+Individual props are still supported but deprecated. Use the `design` prop instead:
+
+**Vanilla (deprecated):**
+
+```html
+<k-input size="md" animation="fade" placeholder="Enter text" aria-label="Email"></k-input>
+```
+
+**React (deprecated):**
+
+```tsx
+<KInput size="md" animation="fade" placeholder="Enter text" aria-label="Email" />
+```
 
 #### Styling Details
 
@@ -208,10 +280,12 @@ const [value, setValue] = useState('');
 
 A flexible card component with padding and shadow variants.
 
+#### Unified Design Prop (Recommended)
+
 **Vanilla:**
 
 ```html
-<k-card padding="md" shadow="lg">
+<k-card design="p:md sh:lg a:fade">
   <h2>Card Title</h2>
   <p>Card content</p>
 </k-card>
@@ -220,19 +294,61 @@ A flexible card component with padding and shadow variants.
 **React:**
 
 ```tsx
-<KCard padding="md" shadow="lg">
+<KCard design="p:md sh:lg a:fade">
   <h2>Card Title</h2>
   <p>Card content</p>
 </KCard>
 ```
 
+#### Design Token Format
+
+The `design` prop uses space-separated prefixed tokens:
+
+```
+design="p:md sh:lg a:fade"
+       ↑   ↑    ↑   ↑
+       |   |    |   └─ animation
+       |   |    └───── shadow
+       |   └────────── padding
+       └────────────── prefix
+```
+
+#### Available Tokens
+
+| Prefix | Token Name | Values                                                             | Example  |
+| ------ | ---------- | ------------------------------------------------------------------ | -------- |
+| `p:`   | padding    | sm, md, lg                                                         | `p:md`   |
+| `sh:`  | shadow     | sm, md, lg, none                                                   | `sh:lg`  |
+| `a:`   | animation  | pulse, bounce, fade, scale, shake, glow, slide, rotate, flip, none | `a:fade` |
+
 #### Props & Attributes
 
-| Prop/Attribute      | Type                           | Default | Description            |
-| ------------------- | ------------------------------ | ------- | ---------------------- |
-| `padding`           | 'sm' \| 'md' \| 'lg'           | 'md'    | Internal padding       |
-| `shadow`            | 'sm' \| 'md' \| 'lg' \| 'none' | 'md'    | Shadow effect          |
-| `className` (React) | string                         | -       | Additional CSS classes |
+| Prop/Attribute      | Type   | Default | Description                                       |
+| ------------------- | ------ | ------- | ------------------------------------------------- |
+| `design`            | string | -       | Unified design tokens (e.g., "p:md sh:lg a:fade") |
+| `className` (React) | string | -       | Additional CSS classes                            |
+
+#### Backward Compatibility (Deprecated)
+
+Individual props are still supported but deprecated. Use the `design` prop instead:
+
+**Vanilla (deprecated):**
+
+```html
+<k-card padding="md" shadow="lg" animation="fade">
+  <h2>Card Title</h2>
+  <p>Card content</p>
+</k-card>
+```
+
+**React (deprecated):**
+
+```tsx
+<KCard padding="md" shadow="lg" animation="fade">
+  <h2>Card Title</h2>
+  <p>Card content</p>
+</KCard>
+```
 
 #### Styling Details
 
@@ -251,48 +367,85 @@ A flexible card component with padding and shadow variants.
 
 All components support 10 animation types for enhanced user experience:
 
-| Animation  | Description               | Trigger         | Duration    |
-| ---------- | ------------------------- | --------------- | ----------- |
-| **pulse**  | Continuous pulsing effect | Always active   | 2s infinite |
-| **bounce** | Bouncing effect           | On hover        | 0.5s        |
-| **fade**   | Fade-in effect            | On mount        | 0.3s        |
-| **scale**  | Scale transformation      | On hover        | 0.3s        |
-| **shake**  | Shake effect              | On click/active | 0.3s        |
-| **glow**   | Glowing effect            | Always active   | 2s infinite |
-| **slide**  | Slide effect              | On mount        | 0.3s        |
-| **rotate** | Rotation animation        | Always active   | 1s infinite |
-| **flip**   | Flip animation            | On mount        | 0.6s        |
-| **none**   | No animation              | -               | -           |
+| Animation  | Description               | Trigger         | Duration    | Component Behavior                        |
+| ---------- | ------------------------- | --------------- | ----------- | ----------------------------------------- |
+| **pulse**  | Continuous pulsing effect | Always active   | 2s infinite | Opacity fades in/out continuously         |
+| **bounce** | Bouncing effect           | On hover        | 0.5s        | Vertical movement on hover only           |
+| **fade**   | Fade-in effect            | On mount        | 0.3s        | Opacity 0→1 when component appears        |
+| **scale**  | Scale transformation      | On hover        | 0.3s        | Size grows 1→1.05 on hover only           |
+| **shake**  | Shake effect              | On click/active | 0.3s        | Horizontal movement on click/active state |
+| **glow**   | Glowing effect            | Always active   | 2s infinite | Box-shadow pulsing continuously           |
+| **slide**  | Slide effect              | On mount        | 0.3s        | Horizontal movement from left on mount    |
+| **rotate** | Rotation animation        | Always active   | 1s infinite | 360° rotation continuously                |
+| **flip**   | Flip animation            | On mount        | 0.6s        | Y-axis rotation on mount                  |
+| **none**   | No animation              | -               | -           | No animation applied                      |
+
+### Animation Behavior by Component
+
+**Button Animations:**
+
+- `pulse`, `glow`, `rotate`: Always active
+- `bounce`, `scale`: Triggered on hover
+- `shake`: Triggered on click/active state
+- `fade`, `slide`, `flip`: Triggered on mount
+
+**Input Animations:**
+
+- `pulse`, `glow`, `rotate`: Always active
+- `fade`, `slide`: Triggered on mount
+- Other animations: Applied but may not be as visible due to input nature
+
+**Card Animations:**
+
+- `pulse`, `glow`, `rotate`: Always active
+- `fade`, `slide`, `flip`: Triggered on mount
+- `bounce`, `scale`: Applied to entire card
 
 ### Animation Usage
 
 **Vanilla:**
 
 ```html
-<!-- Pulsing button -->
-<k-button animation="pulse">Pulsing Button</k-button>
+<!-- Pulsing button using design prop -->
+<k-button design="v:primary a:pulse">Pulsing Button</k-button>
 
-<!-- Bouncing input on hover -->
-<k-input animation="bounce" placeholder="Hover me"></k-input>
+<!-- Bouncing input on hover using design prop -->
+<k-input design="s:md a:bounce" placeholder="Hover me"></k-input>
 
-<!-- Glowing card -->
-<k-card animation="glow" padding="md">
+<!-- Glowing card using design prop -->
+<k-card design="p:md sh:md a:glow">
   <p>Glowing card content</p>
+</k-card>
+
+<!-- Shake effect on button click -->
+<k-button design="v:danger a:shake">Delete</k-button>
+
+<!-- Fade effect on card mount -->
+<k-card design="p:md a:fade">
+  <p>This card fades in when it appears</p>
 </k-card>
 ```
 
 **React:**
 
 ```tsx
-// Pulsing button
-<KButton animation="pulse">Pulsing Button</KButton>
+// Pulsing button using design prop
+<KButton design="v:primary a:pulse">Pulsing Button</KButton>
 
-// Bouncing input on hover
-<KInput animation="bounce" placeholder="Hover me" />
+// Bouncing input on hover using design prop
+<KInput design="s:md a:bounce" placeholder="Hover me" />
 
-// Glowing card
-<KCard animation="glow" padding="md">
+// Glowing card using design prop
+<KCard design="p:md sh:md a:glow">
   <p>Glowing card content</p>
+</KCard>
+
+// Shake effect on button click
+<KButton design="v:danger a:shake">Delete</KButton>
+
+// Fade effect on card mount
+<KCard design="p:md a:fade">
+  <p>This card fades in when it appears</p>
 </KCard>
 ```
 
@@ -320,6 +473,23 @@ To disable animations globally for users who prefer reduced motion:
 ```
 
 Kenikool UI automatically respects this preference.
+
+### Animation Combinations
+
+You can combine animations with other design tokens:
+
+```html
+<!-- Large primary button with pulse animation -->
+<k-button design="v:primary s:lg a:pulse">Important Action</k-button>
+
+<!-- Medium input with fade animation -->
+<k-input design="s:md a:fade" placeholder="Enter text"></k-input>
+
+<!-- Large card with glow animation -->
+<k-card design="p:lg sh:lg a:glow">
+  <h2>Featured Content</h2>
+</k-card>
+```
 
 ## Theme Customization
 
@@ -944,22 +1114,22 @@ export function ContactForm() {
 
 ```html
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
-  <k-card padding="lg" shadow="md">
+  <k-card design="p:lg sh:md">
     <h3>Feature 1</h3>
     <p>Description of feature 1</p>
-    <k-button variant="secondary" size="sm">Learn More</k-button>
+    <k-button design="v:secondary s:sm">Learn More</k-button>
   </k-card>
 
-  <k-card padding="lg" shadow="md">
+  <k-card design="p:lg sh:md">
     <h3>Feature 2</h3>
     <p>Description of feature 2</p>
-    <k-button variant="secondary" size="sm">Learn More</k-button>
+    <k-button design="v:secondary s:sm">Learn More</k-button>
   </k-card>
 
-  <k-card padding="lg" shadow="md">
+  <k-card design="p:lg sh:md">
     <h3>Feature 3</h3>
     <p>Description of feature 3</p>
-    <k-button variant="secondary" size="sm">Learn More</k-button>
+    <k-button design="v:secondary s:sm">Learn More</k-button>
   </k-card>
 </div>
 ```
@@ -985,12 +1155,10 @@ export function FeatureGrid() {
       }}
     >
       {features.map((feature) => (
-        <KCard key={feature.title} padding="lg" shadow="md">
+        <KCard key={feature.title} design="p:lg sh:md">
           <h3>{feature.title}</h3>
           <p>{feature.description}</p>
-          <KButton variant="secondary" size="sm">
-            Learn More
-          </KButton>
+          <KButton design="v:secondary s:sm">Learn More</KButton>
         </KCard>
       ))}
     </div>
@@ -1004,22 +1172,22 @@ export function FeatureGrid() {
 
 ```html
 <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-  <!-- Primary variants -->
-  <k-button variant="primary" size="sm">Small</k-button>
-  <k-button variant="primary" size="md">Medium</k-button>
-  <k-button variant="primary" size="lg">Large</k-button>
+  <!-- Primary variants using design prop -->
+  <k-button design="v:primary s:sm">Small</k-button>
+  <k-button design="v:primary s:md">Medium</k-button>
+  <k-button design="v:primary s:lg">Large</k-button>
 
-  <!-- Secondary variants -->
-  <k-button variant="secondary" size="md">Secondary</k-button>
+  <!-- Secondary variant -->
+  <k-button design="v:secondary s:md">Secondary</k-button>
 
-  <!-- Danger variants -->
-  <k-button variant="danger" size="md">Delete</k-button>
+  <!-- Danger variant -->
+  <k-button design="v:danger s:md">Delete</k-button>
 
   <!-- Disabled state -->
-  <k-button variant="primary" disabled>Disabled</k-button>
+  <k-button design="v:primary s:md" disabled>Disabled</k-button>
 
   <!-- With animation -->
-  <k-button variant="primary" animation="pulse">Pulse</k-button>
+  <k-button design="v:primary s:md a:pulse">Pulse</k-button>
 </div>
 ```
 
@@ -1031,36 +1199,24 @@ import { KButton } from '@kenikool/ui/react';
 export function ButtonShowcase() {
   return (
     <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-      {/* Primary variants */}
-      <KButton variant="primary" size="sm">
-        Small
-      </KButton>
-      <KButton variant="primary" size="md">
-        Medium
-      </KButton>
-      <KButton variant="primary" size="lg">
-        Large
-      </KButton>
+      {/* Primary variants using design prop */}
+      <KButton design="v:primary s:sm">Small</KButton>
+      <KButton design="v:primary s:md">Medium</KButton>
+      <KButton design="v:primary s:lg">Large</KButton>
 
-      {/* Secondary variants */}
-      <KButton variant="secondary" size="md">
-        Secondary
-      </KButton>
+      {/* Secondary variant */}
+      <KButton design="v:secondary s:md">Secondary</KButton>
 
-      {/* Danger variants */}
-      <KButton variant="danger" size="md">
-        Delete
-      </KButton>
+      {/* Danger variant */}
+      <KButton design="v:danger s:md">Delete</KButton>
 
       {/* Disabled state */}
-      <KButton variant="primary" disabled>
+      <KButton design="v:primary s:md" disabled>
         Disabled
       </KButton>
 
       {/* With animation */}
-      <KButton variant="primary" animation="pulse">
-        Pulse
-      </KButton>
+      <KButton design="v:primary s:md a:pulse">Pulse</KButton>
     </div>
   );
 }
@@ -1075,26 +1231,26 @@ export function ButtonShowcase() {
   <!-- Normal state -->
   <div>
     <label for="input-normal">Normal</label>
-    <k-input id="input-normal" placeholder="Enter text"></k-input>
+    <k-input id="input-normal" design="s:md" placeholder="Enter text"></k-input>
   </div>
 
   <!-- Focus state -->
   <div>
     <label for="input-focus">Focus (click to see)</label>
-    <k-input id="input-focus" placeholder="Click to focus"></k-input>
+    <k-input id="input-focus" design="s:md" placeholder="Click to focus"></k-input>
   </div>
 
   <!-- Error state -->
   <div>
     <label for="input-error">Error</label>
-    <k-input id="input-error" error placeholder="Error state"></k-input>
+    <k-input id="input-error" design="s:md" error placeholder="Error state"></k-input>
     <div style="color: #ef4444; font-size: 0.875rem;">This field is required</div>
   </div>
 
   <!-- Disabled state -->
   <div>
     <label for="input-disabled">Disabled</label>
-    <k-input id="input-disabled" disabled placeholder="Disabled"></k-input>
+    <k-input id="input-disabled" design="s:md" disabled placeholder="Disabled"></k-input>
   </div>
 </div>
 ```
@@ -1113,7 +1269,7 @@ export function InputStates() {
       {/* Normal state */}
       <div>
         <label htmlFor="input-normal">Normal</label>
-        <KInput id="input-normal" placeholder="Enter text" />
+        <KInput id="input-normal" design="s:md" placeholder="Enter text" />
       </div>
 
       {/* Focus state */}
@@ -1121,6 +1277,7 @@ export function InputStates() {
         <label htmlFor="input-focus">Focus (click to see)</label>
         <KInput
           id="input-focus"
+          design="s:md"
           placeholder="Click to focus"
           onFocus={() => setFocusedId('input-focus')}
           onBlur={() => setFocusedId('')}
@@ -1130,14 +1287,14 @@ export function InputStates() {
       {/* Error state */}
       <div>
         <label htmlFor="input-error">Error</label>
-        <KInput id="input-error" error placeholder="Error state" />
+        <KInput id="input-error" design="s:md" error placeholder="Error state" />
         <div style={{ color: '#ef4444', fontSize: '0.875rem' }}>This field is required</div>
       </div>
 
       {/* Disabled state */}
       <div>
         <label htmlFor="input-disabled">Disabled</label>
-        <KInput id="input-disabled" disabled placeholder="Disabled" />
+        <KInput id="input-disabled" design="s:md" disabled placeholder="Disabled" />
       </div>
     </div>
   );

@@ -22,10 +22,17 @@ const meta: Meta<typeof KCard> = {
     },
   },
   argTypes: {
+    design: {
+      control: 'text',
+      description: 'Unified design tokens (e.g., "p:md sh:lg a:fade")',
+      table: {
+        type: { summary: 'string' },
+      },
+    },
     padding: {
       control: 'select',
       options: ['sm', 'md', 'lg'],
-      description: 'Card padding size',
+      description: 'Card padding size (deprecated, use design prop)',
       table: {
         type: { summary: 'sm | md | lg' },
         defaultValue: { summary: 'md' },
@@ -34,7 +41,7 @@ const meta: Meta<typeof KCard> = {
     shadow: {
       control: 'select',
       options: ['sm', 'md', 'lg', 'none'],
-      description: 'Card shadow effect',
+      description: 'Card shadow effect (deprecated, use design prop)',
       table: {
         type: { summary: 'sm | md | lg | none' },
         defaultValue: { summary: 'md' },
@@ -54,7 +61,7 @@ const meta: Meta<typeof KCard> = {
         'flip',
         'none',
       ],
-      description: 'Animation effect applied to the card',
+      description: 'Animation effect applied to the card (deprecated, use design prop)',
       table: {
         type: {
           summary: 'pulse | bounce | fade | scale | shake | glow | slide | rotate | flip | none',
@@ -79,6 +86,150 @@ const meta: Meta<typeof KCard> = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
+
+// ============================================================================
+// DESIGN PROP STORIES (RECOMMENDED)
+// ============================================================================
+
+/**
+ * Using unified design prop - Recommended approach
+ */
+export const DesignPropBasic: Story = {
+  args: {
+    design: 'p:md sh:md',
+    children: (
+      <div>
+        <h3>Design Prop Card</h3>
+        <p>Card using the unified design prop. This is the recommended approach.</p>
+      </div>
+    ),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Card using the unified design prop. This is the recommended approach. Format: "p:md sh:lg a:fade"',
+      },
+    },
+  },
+};
+
+/**
+ * Design prop with animation
+ */
+export const DesignPropWithAnimation: Story = {
+  args: {
+    design: 'p:lg sh:lg a:fade',
+    children: (
+      <div>
+        <h3>Animated Design Prop Card</h3>
+        <p>Card with design prop including padding, shadow, and animation tokens.</p>
+      </div>
+    ),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Card with design prop including padding, shadow, and animation tokens.',
+      },
+    },
+  },
+};
+
+/**
+ * Design prop padding showcase
+ */
+export const DesignPropPaddings: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      <KCard design="p:sm sh:md">
+        <h4>Small Padding</h4>
+        <p>12px padding</p>
+      </KCard>
+      <KCard design="p:md sh:md">
+        <h4>Medium Padding</h4>
+        <p>16px padding</p>
+      </KCard>
+      <KCard design="p:lg sh:md">
+        <h4>Large Padding</h4>
+        <p>24px padding</p>
+      </KCard>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'All card padding variants using the design prop.',
+      },
+    },
+  },
+};
+
+/**
+ * Design prop shadow showcase
+ */
+export const DesignPropShadows: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      <KCard design="p:md sh:sm">
+        <h4>Small Shadow</h4>
+        <p>Subtle elevation</p>
+      </KCard>
+      <KCard design="p:md sh:md">
+        <h4>Medium Shadow</h4>
+        <p>Default elevation</p>
+      </KCard>
+      <KCard design="p:md sh:lg">
+        <h4>Large Shadow</h4>
+        <p>Prominent elevation</p>
+      </KCard>
+      <KCard design="p:md sh:none">
+        <h4>No Shadow</h4>
+        <p>Flat design</p>
+      </KCard>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'All card shadow variants using the design prop.',
+      },
+    },
+  },
+};
+
+/**
+ * Design prop animations showcase
+ */
+export const DesignPropAnimations: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      <KCard design="a:fade">
+        <h4>Fade</h4>
+        <p>Fade-in animation</p>
+      </KCard>
+      <KCard design="a:pulse">
+        <h4>Pulse</h4>
+        <p>Pulsing animation</p>
+      </KCard>
+      <KCard design="a:glow">
+        <h4>Glow</h4>
+        <p>Glowing animation</p>
+      </KCard>
+      <KCard design="a:slide">
+        <h4>Slide</h4>
+        <p>Slide animation</p>
+      </KCard>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'All card animations using the design prop.',
+      },
+    },
+  },
+};
 
 // ============================================================================
 // PADDING STORIES

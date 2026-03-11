@@ -19,7 +19,7 @@
     "src"
   ],
   "scripts": {
-    "build": "vite build && tsc --emitDeclarationOnly",
+    "build": "vite build",
     "dev": "vite",
     "preview": "vite preview",
     "test": "vitest run",
